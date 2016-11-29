@@ -1,0 +1,22 @@
+### sitios
+
+
+  Welcome to TripleO documentation¶
+  http://docs.openstack.org/developer/tripleo-docs/
+  http://docs.openstack.org/developer/tripleo-docs/basic_deployment/basic_deployment_cli.html
+  http://docs.openstack.org/developer/tripleo-docs/installation/installing.html
+ 
+ HOWTO: OpenStack Deployment using TripleO and the Red Hat OpenStack Director
+ https://keithtenzer.com/2015/10/14/howto-openstack-deployment-using-tripleo-and-the-red-hat-openstack-director/
+ 
+ Advanced Deployment with TripleO and OpenStack Director
+ https://keithtenzer.com/2015/11/09/advanced-deployment-with-tripleo-and-openstack-director/
+ 
+ Red Hat OpenStack Platform 8 Lab Configuration using OpenStack Director
+ https://keithtenzer.com/2016/05/30/red-hat-openstack-platform-8-lab-configuration-using-openstack-director/
+ 
+  TripleO Heat templates Part 2 - Node initial deployment & config 
+  http://hardysteven.blogspot.mx/2015/05/tripleo-heat-templates-part-2-node.html
+  
+  Hacer ataque HTTPS DDOS desde Kali Linux 2016.1
+  https://creadpag.wordpress.com/2016/02/20/hacer-ataque-https-ddos-desde-kali-linux-2016-1/

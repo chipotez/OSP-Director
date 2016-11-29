@@ -20,3 +20,27 @@
   
   Hacer ataque HTTPS DDOS desde Kali Linux 2016.1
   https://creadpag.wordpress.com/2016/02/20/hacer-ataque-https-ddos-desde-kali-linux-2016-1/
+  
+  Configuring the Bare Metal (ironic) service (optional)¶
+  http://docs.openstack.org/developer/openstack-ansible/mitaka/install-guide/configure-ironic.html
+  
+  Red Hat OpenStack Platform 8 Lab Configuration using OpenStack Director
+  http://www.opensourcerers.org/red-hat-openstack-platform-8-lab-configuration-using-openstack-director/
+  
+  Advanced Profile Matching¶
+  http://docs.openstack.org/developer/tripleo-docs/advanced_deployment/profile_matching.html
+  
+    Bare Metal service command-line client
+  http://docs.openstack.org/cli-reference/ironic.html
+
+  Installation Guide¶ 
+  http://docs.openstack.org/developer/ironic/deploy/install-guide.html
+
+  Troubleshooting
+  http://docs.openstack.org/developer/tripleo-docs/troubleshooting/troubleshooting.html
+
+  Troubleshooting Ironic¶
+  http://docs.openstack.org/developer/ironic/deploy/troubleshooting.html
+
+  Advanced Profile Matching
+  http://docs.openstack.org/developer/tripleo-docs/advanced_deployment/profile_matching.html

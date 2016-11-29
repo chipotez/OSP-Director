@@ -44,3 +44,6 @@
 
   Advanced Profile Matching
   http://docs.openstack.org/developer/tripleo-docs/advanced_deployment/profile_matching.html
+  
+  OpenStack Ironic: Manual Node Tagging and Mapping
+  https://fatmin.com/2016/01/18/openstack-ironic-manual-node-tagging/

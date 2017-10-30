@@ -1,0 +1,1676 @@
+[stack@undercloud ~]$ openstack undercloud install
+Logging to /home/stack/.instack/install-undercloud.log
+Checking for a FQDN hostname...
+Static hostname detected as undercloud.example.com
+Transient hostname detected as undercloud.example.com
+Generated new password for undercloud_db_password
+Generated new password for undercloud_admin_token
+Generated new password for undercloud_admin_password
+Generated new password for undercloud_glance_password
+Generated new password for undercloud_heat_encryption_key
+Generated new password for undercloud_heat_password
+Generated new password for undercloud_neutron_password
+Generated new password for undercloud_nova_password
+Generated new password for undercloud_ironic_password
+Generated new password for undercloud_aodh_password
+Generated new password for undercloud_ceilometer_password
+Generated new password for undercloud_ceilometer_metering_secret
+Generated new password for undercloud_ceilometer_snmpd_password
+Generated new password for undercloud_swift_password
+Generated new password for undercloud_mistral_password
+Generated new password for undercloud_rabbit_cookie
+Generated new password for undercloud_rabbit_password
+Generated new password for undercloud_rabbit_username
+Generated new password for undercloud_heat_stack_domain_admin_password
+Generated new password for undercloud_swift_hash_suffix
+Generated new password for undercloud_haproxy_stats_password
+Generated new password for undercloud_zaqar_password
+Generated new password for undercloud_horizon_secret_key
+Running yum update
+Complementos cargados:search-disabled-repos
+No packages marked for update
+yum-update completed successfully
+Running instack
+INFO: 2017-10-30 12:53:56,964 -- Starting run of instack
+INFO: 2017-10-30 12:53:56,973 -- Using json file: /usr/share/instack-undercloud/json-files/rhel-7-undercloud-packages.json
+INFO: 2017-10-30 12:53:56,973 -- Running Installation
+INFO: 2017-10-30 12:53:56,974 -- Initialized with elements path: /usr/share/tripleo-puppet-elements /usr/share/instack-undercloud /usr/share/tripleo-image-elements /usr/share/diskimage-builder/elements
+INFO: 2017-10-30 12:53:57,013 -- List of all elements and dependencies: undercloud-install puppet-modules install-bin pip-manifest manifests puppet source-repositories package-installs dib-python os-apply-config hiera enable-packages-install install-types os-collect-config svc-map os-refresh-config element-manifest os-svc-install puppet-stack-config pip-and-virtualenv cache-url pkg-map
+INFO: 2017-10-30 12:53:57,013 -- Excluding element pip-and-virtualenv
+INFO: 2017-10-30 12:53:57,013 -- Excluding element os-collect-config
+INFO: 2017-10-30 12:53:57,013 -- Excluding element svc-map
+INFO: 2017-10-30 12:53:57,013 -- Excluding element pip-manifest
+INFO: 2017-10-30 12:53:57,013 -- Excluding element package-installs
+INFO: 2017-10-30 12:53:57,013 -- Excluding element pkg-map
+INFO: 2017-10-30 12:53:57,014 -- Excluding element puppet
+INFO: 2017-10-30 12:53:57,014 -- Excluding element cache-url
+INFO: 2017-10-30 12:53:57,014 -- Excluding element dib-python
+INFO: 2017-10-30 12:53:57,014 -- Excluding element os-svc-install
+INFO: 2017-10-30 12:53:57,014 -- Excluding element install-bin
+INFO: 2017-10-30 12:53:57,014 -- List of all elements and dependencies after excludes: undercloud-install puppet-modules manifests source-repositories os-apply-config hiera enable-packages-install install-types os-refresh-config element-manifest puppet-stack-config
+INFO: 2017-10-30 12:53:57,048 --   Running hook extra-data
+INFO: 2017-10-30 12:53:57,048 -- ############### Begin stdout/stderr logging ###############
+dib-run-parts lun oct 30 12:53:57 EDT 2017 Running /tmp/tmpDZq0UP/extra-data.d/10-install-git
++ yum -y install git
+Complementos cargados:search-disabled-repos
+Resolviendo dependencias
+--> Ejecutando prueba de transacción
+---> Paquete git.x86_64 0:1.8.3.1-12.el7_4 debe ser instalado
+--> Procesando dependencias: perl-Git = 1.8.3.1-12.el7_4 para el paquete: git-1.8.3.1-12.el7_4.x86_64
+--> Procesando dependencias: perl(Term::ReadKey) para el paquete: git-1.8.3.1-12.el7_4.x86_64
+--> Procesando dependencias: perl(Git) para el paquete: git-1.8.3.1-12.el7_4.x86_64
+--> Procesando dependencias: perl(Error) para el paquete: git-1.8.3.1-12.el7_4.x86_64
+--> Procesando dependencias: libgnome-keyring.so.0()(64bit) para el paquete: git-1.8.3.1-12.el7_4.x86_64
+--> Ejecutando prueba de transacción
+---> Paquete libgnome-keyring.x86_64 0:3.12.0-1.el7 debe ser instalado
+---> Paquete perl-Error.noarch 1:0.17020-2.el7 debe ser instalado
+---> Paquete perl-Git.noarch 0:1.8.3.1-12.el7_4 debe ser instalado
+---> Paquete perl-TermReadKey.x86_64 0:2.30-20.el7 debe ser instalado
+--> Resolución de dependencias finalizada
+
+Dependencias resueltas
+
+================================================================================
+ Package             Arquitectura
+                               Versión              Repositorio           Tamaño
+================================================================================
+Instalando:
+ git                 x86_64    1.8.3.1-12.el7_4     rhel-7-server-rpms    4.4 M
+Instalando para las dependencias:
+ libgnome-keyring    x86_64    3.12.0-1.el7         rhel-7-server-rpms    110 k
+ perl-Error          noarch    1:0.17020-2.el7      rhel-7-server-rpms     32 k
+ perl-Git            noarch    1.8.3.1-12.el7_4     rhel-7-server-rpms     54 k
+ perl-TermReadKey    x86_64    2.30-20.el7          rhel-7-server-rpms     31 k
+
+Resumen de la transacción
+================================================================================
+Instalar  1 Paquete (+4 Paquetes dependientes)
+
+Tamaño total de la descarga: 4.6 M
+Tamaño instalado: 23 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                              8.9 MB/s | 4.6 MB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Instalando    : 1:perl-Error-0.17020-2.el7.noarch                         1/5
+  Instalando    : perl-TermReadKey-2.30-20.el7.x86_64                       2/5
+  Instalando    : libgnome-keyring-3.12.0-1.el7.x86_64                      3/5
+  Instalando    : perl-Git-1.8.3.1-12.el7_4.noarch                          4/5
+  Instalando    : git-1.8.3.1-12.el7_4.x86_64                               5/5
+  Comprobando   : git-1.8.3.1-12.el7_4.x86_64                               1/5
+  Comprobando   : 1:perl-Error-0.17020-2.el7.noarch                         2/5
+  Comprobando   : libgnome-keyring-3.12.0-1.el7.x86_64                      3/5
+  Comprobando   : perl-Git-1.8.3.1-12.el7_4.noarch                          4/5
+  Comprobando   : perl-TermReadKey-2.30-20.el7.x86_64                       5/5
+
+Instalado:
+  git.x86_64 0:1.8.3.1-12.el7_4
+
+Dependencia(s) instalada(s):
+  libgnome-keyring.x86_64 0:3.12.0-1.el7  perl-Error.noarch 1:0.17020-2.el7
+  perl-Git.noarch 0:1.8.3.1-12.el7_4      perl-TermReadKey.x86_64 0:2.30-20.el7
+
+¡Listo!
+dib-run-parts lun oct 30 12:54:01 EDT 2017 10-install-git completed
+dib-run-parts lun oct 30 12:54:01 EDT 2017 Running /tmp/tmpDZq0UP/extra-data.d/20-manifest-dir
++ set -eu
++ set -o pipefail
++ sudo mkdir -p /tmp/instack.xvAEB5/mnt//etc/dib-manifests
+dib-run-parts lun oct 30 12:54:01 EDT 2017 20-manifest-dir completed
+dib-run-parts lun oct 30 12:54:01 EDT 2017 Running /tmp/tmpDZq0UP/extra-data.d/75-inject-element-manifest
++ set -eu
++ set -o pipefail
++ DIB_ELEMENT_MANIFEST_PATH=/etc/dib-manifests/dib-element-manifest
+++ dirname /etc/dib-manifests/dib-element-manifest
++ sudo mkdir -p /tmp/instack.xvAEB5/mnt//etc/dib-manifests
++ sudo /bin/bash -c 'echo element-manifest enable-packages-install hiera install-types manifests os-apply-config os-refresh-config puppet-modules puppet-stack-config source-repositories undercloud-install | tr '\'' '\'' '\''\n'\'' > /tmp/instack.xvAEB5/mnt//etc/dib-manifests/dib-element-manifest'
+dib-run-parts lun oct 30 12:54:01 EDT 2017 75-inject-element-manifest completed
+dib-run-parts lun oct 30 12:54:01 EDT 2017 Running /tmp/tmpDZq0UP/extra-data.d/98-source-repositories
+Getting /root/.cache/image-create/source-repositories/repositories_flock: lun oct 30 12:54:01 EDT 2017 for /tmp/tmpDZq0UP/source-repository-puppet-modules
+(0001 / 0071)
+puppetlabs-apache install type not set to source
+(0002 / 0071)
+puppet-aodh install type not set to source
+(0003 / 0071)
+puppet-barbican install type not set to source
+(0004 / 0071)
+puppet-cassandra install type not set to source
+(0005 / 0071)
+puppet-ceph install type not set to source
+(0006 / 0071)
+puppet-ceilometer install type not set to source
+(0007 / 0071)
+puppet-gnocchi install type not set to source
+(0008 / 0071)
+puppet-certmonger install type not set to source
+(0009 / 0071)
+puppet-cinder install type not set to source
+(0010 / 0071)
+puppet-common install type not set to source
+(0011 / 0071)
+puppet-contrail install type not set to source
+(0012 / 0071)
+puppetlabs-concat install type not set to source
+(0013 / 0071)
+puppetlabs-firewall install type not set to source
+(0014 / 0071)
+puppet-glance install type not set to source
+(0015 / 0071)
+puppet-gluster install type not set to source
+(0016 / 0071)
+puppetlabs-haproxy install type not set to source
+(0017 / 0071)
+puppet-heat install type not set to source
+(0018 / 0071)
+puppet-healthcheck install type not set to source
+(0019 / 0071)
+puppet-horizon install type not set to source
+(0020 / 0071)
+puppetlabs-inifile install type not set to source
+(0021 / 0071)
+puppet-kafka install type not set to source
+(0022 / 0071)
+puppet-keystone install type not set to source
+(0023 / 0071)
+puppet-manila install type not set to source
+(0024 / 0071)
+puppet-memcached install type not set to source
+(0025 / 0071)
+puppet-mistral install type not set to source
+(0026 / 0071)
+puppetlabs-mongodb install type not set to source
+(0027 / 0071)
+puppetlabs-mysql install type not set to source
+(0028 / 0071)
+puppet-neutron install type not set to source
+(0029 / 0071)
+puppet-nova install type not set to source
+(0030 / 0071)
+puppet-oslo install type not set to source
+(0031 / 0071)
+puppet-nssdb install type not set to source
+(0032 / 0071)
+puppet-ovn install type not set to source
+(0033 / 0071)
+puppet-puppet install type not set to source
+(0034 / 0071)
+puppetlabs-rabbitmq install type not set to source
+(0035 / 0071)
+puppet-redis install type not set to source
+(0036 / 0071)
+puppetlabs-rsync install type not set to source
+(0037 / 0071)
+puppet-sahara install type not set to source
+(0038 / 0071)
+sensu-puppet install type not set to source
+(0039 / 0071)
+puppet-trove install type not set to source
+(0040 / 0071)
+puppet-ssh install type not set to source
+(0041 / 0071)
+puppet-staging install type not set to source
+(0042 / 0071)
+puppetlabs-stdlib install type not set to source
+(0043 / 0071)
+puppet-swift install type not set to source
+(0044 / 0071)
+puppetlabs-sysctl install type not set to source
+(0045 / 0071)
+puppet-tempest install type not set to source
+(0046 / 0071)
+puppet-timezone install type not set to source
+(0047 / 0071)
+puppet-uchiwa install type not set to source
+(0048 / 0071)
+puppetlabs-vcsrepo install type not set to source
+(0049 / 0071)
+puppet-vlan install type not set to source
+(0050 / 0071)
+puppet-vswitch install type not set to source
+(0051 / 0071)
+puppetlabs-xinetd install type not set to source
+(0052 / 0071)
+puppet-zookeeper install type not set to source
+(0053 / 0071)
+puppet-openstacklib install type not set to source
+(0054 / 0071)
+puppet-module-keepalived install type not set to source
+(0055 / 0071)
+puppetlabs-ntp install type not set to source
+(0056 / 0071)
+puppet-snmp install type not set to source
+(0057 / 0071)
+puppet-tripleo install type not set to source
+(0058 / 0071)
+puppet-ironic install type not set to source
+(0059 / 0071)
+puppetlabs-corosync install type not set to source
+(0060 / 0071)
+puppet-pacemaker install type not set to source
+(0061 / 0071)
+puppet_aviator install type not set to source
+(0062 / 0071)
+puppet-openstack_extras install type not set to source
+(0063 / 0071)
+konstantin-fluentd install type not set to source
+(0064 / 0071)
+puppet-elasticsearch install type not set to source
+(0065 / 0071)
+puppet-kibana3 install type not set to source
+(0066 / 0071)
+puppetlabs-git install type not set to source
+(0067 / 0071)
+puppet-datacat install type not set to source
+(0068 / 0071)
+puppet-kmod install type not set to source
+(0069 / 0071)
+puppet-zaqar install type not set to source
+(0070 / 0071)
+puppet-ec2api install type not set to source
+(0071 / 0071)
+puppet-systemd install type not set to source
+dib-run-parts lun oct 30 12:54:01 EDT 2017 98-source-repositories completed
+dib-run-parts lun oct 30 12:54:01 EDT 2017 Running /tmp/tmpDZq0UP/extra-data.d/99-enable-install-types
++ set -eu
++ set -o pipefail
++ declare -a SPECIFIED_ELEMS
++ SPECIFIED_ELEMS[0]=
++ PREFIX=DIB_INSTALLTYPE_
+++ env
+++ grep '^DIB_INSTALLTYPE_'
+++ cut -d= -f1
+++ echo ''
++ INSTALL_TYPE_VARS=
+++ find /tmp/tmpDZq0UP/install.d -maxdepth 1 -name '*-package-install' -type d
++ default_install_type_dirs=/tmp/tmpDZq0UP/install.d/puppet-modules-package-install
++ for _install_dir in '$default_install_type_dirs'
++ SUFFIX=-package-install
+++ basename /tmp/tmpDZq0UP/install.d/puppet-modules-package-install
++ _install_dir=puppet-modules-package-install
++ INSTALLDIRPREFIX=puppet-modules
++ found=0
++ '[' 0 = 0 ']'
++ pushd /tmp/tmpDZq0UP/install.d
+/tmp/tmpDZq0UP/install.d /home/stack
++ ln -sf puppet-modules-package-install/75-puppet-modules-package .
++ popd
+/home/stack
+dib-run-parts lun oct 30 12:54:01 EDT 2017 99-enable-install-types completed
+dib-run-parts lun oct 30 12:54:01 EDT 2017 ----------------------- PROFILING -----------------------
+dib-run-parts lun oct 30 12:54:01 EDT 2017
+dib-run-parts lun oct 30 12:54:01 EDT 2017 Target: extra-data.d
+dib-run-parts lun oct 30 12:54:01 EDT 2017
+dib-run-parts lun oct 30 12:54:01 EDT 2017 Script                                     Seconds
+dib-run-parts lun oct 30 12:54:01 EDT 2017 ---------------------------------------  ----------
+dib-run-parts lun oct 30 12:54:01 EDT 2017
+dib-run-parts Mon Oct 30 12:54:01 EDT 2017 10-install-git                                4.052
+dib-run-parts Mon Oct 30 12:54:01 EDT 2017 20-manifest-dir                               0.015
+dib-run-parts Mon Oct 30 12:54:01 EDT 2017 75-inject-element-manifest                    0.025
+dib-run-parts Mon Oct 30 12:54:01 EDT 2017 98-source-repositories                        0.385
+dib-run-parts Mon Oct 30 12:54:01 EDT 2017 99-enable-install-types                       0.012
+dib-run-parts lun oct 30 12:54:01 EDT 2017
+dib-run-parts lun oct 30 12:54:01 EDT 2017 --------------------- END PROFILING ---------------------
+INFO: 2017-10-30 12:54:01,623 -- ############### End stdout/stderr logging ###############
+INFO: 2017-10-30 12:54:01,623 --   Running hook pre-install
+INFO: 2017-10-30 12:54:01,623 --     Skipping hook pre-install, the hook directory doesn't exist at /tmp/tmpDZq0UP/pre-install.d
+INFO: 2017-10-30 12:54:01,623 --   Running hook install
+INFO: 2017-10-30 12:54:01,624 -- ############### Begin stdout/stderr logging ###############
+dib-run-parts lun oct 30 12:54:01 EDT 2017 Running /tmp/tmpDZq0UP/install.d/02-puppet-stack-config
+dib-run-parts lun oct 30 12:54:02 EDT 2017 02-puppet-stack-config completed
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Running /tmp/tmpDZq0UP/install.d/10-hiera-yaml-symlink
++ set -o pipefail
++ ln -f -s /etc/puppet/hiera.yaml /etc/hiera.yaml
+dib-run-parts lun oct 30 12:54:02 EDT 2017 10-hiera-yaml-symlink completed
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Running /tmp/tmpDZq0UP/install.d/10-puppet-stack-config-puppet-module
++ set -o pipefail
++ mkdir -p /etc/puppet/manifests
+++ dirname /tmp/tmpDZq0UP/install.d/10-puppet-stack-config-puppet-module
++ cp /tmp/tmpDZq0UP/install.d/../puppet-stack-config.pp /etc/puppet/manifests/puppet-stack-config.pp
+dib-run-parts lun oct 30 12:54:02 EDT 2017 10-puppet-stack-config-puppet-module completed
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Running /tmp/tmpDZq0UP/install.d/11-create-template-root
+++ os-apply-config --print-templates
++ TEMPLATE_ROOT=/usr/libexec/os-apply-config/templates
++ mkdir -p /usr/libexec/os-apply-config/templates
+dib-run-parts lun oct 30 12:54:02 EDT 2017 11-create-template-root completed
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Running /tmp/tmpDZq0UP/install.d/75-puppet-modules-package
++ find /opt/stack/puppet-modules/ -mindepth 1
++ read
++ ln -f -s /usr/share/openstack-puppet/modules/aodh /usr/share/openstack-puppet/modules/apache /usr/share/openstack-puppet/modules/barbican /usr/share/openstack-puppet/modules/cassandra /usr/share/openstack-puppet/modules/ceilometer /usr/share/openstack-puppet/modules/ceph /usr/share/openstack-puppet/modules/certmonger /usr/share/openstack-puppet/modules/cinder /usr/share/openstack-puppet/modules/concat /usr/share/openstack-puppet/modules/contrail /usr/share/openstack-puppet/modules/corosync /usr/share/openstack-puppet/modules/datacat /usr/share/openstack-puppet/modules/elasticsearch /usr/share/openstack-puppet/modules/firewall /usr/share/openstack-puppet/modules/fluentd /usr/share/openstack-puppet/modules/git /usr/share/openstack-puppet/modules/glance /usr/share/openstack-puppet/modules/gnocchi /usr/share/openstack-puppet/modules/haproxy /usr/share/openstack-puppet/modules/heat /usr/share/openstack-puppet/modules/horizon /usr/share/openstack-puppet/modules/inifile /usr/share/openstack-puppet/modules/ironic /usr/share/openstack-puppet/modules/java /usr/share/openstack-puppet/modules/kafka /usr/share/openstack-puppet/modules/keepalived /usr/share/openstack-puppet/modules/keystone /usr/share/openstack-puppet/modules/kibana3 /usr/share/openstack-puppet/modules/kmod /usr/share/openstack-puppet/modules/manila /usr/share/openstack-puppet/modules/memcached /usr/share/openstack-puppet/modules/midonet /usr/share/openstack-puppet/modules/mistral /usr/share/openstack-puppet/modules/module-collectd /usr/share/openstack-puppet/modules/module-data /usr/share/openstack-puppet/modules/mongodb /usr/share/openstack-puppet/modules/mysql /usr/share/openstack-puppet/modules/n1k_vsm /usr/share/openstack-puppet/modules/neutron /usr/share/openstack-puppet/modules/nova /usr/share/openstack-puppet/modules/nssdb /usr/share/openstack-puppet/modules/ntp /usr/share/openstack-puppet/modules/opendaylight /usr/share/openstack-puppet/modules/openstack_extras /usr/share/openstack-puppet/modules/openstacklib /usr/share/openstack-puppet/modules/oslo /usr/share/openstack-puppet/modules/ovn /usr/share/openstack-puppet/modules/pacemaker /usr/share/openstack-puppet/modules/rabbitmq /usr/share/openstack-puppet/modules/redis /usr/share/openstack-puppet/modules/remote /usr/share/openstack-puppet/modules/rsync /usr/share/openstack-puppet/modules/sahara /usr/share/openstack-puppet/modules/sensu /usr/share/openstack-puppet/modules/snmp /usr/share/openstack-puppet/modules/ssh /usr/share/openstack-puppet/modules/staging /usr/share/openstack-puppet/modules/stdlib /usr/share/openstack-puppet/modules/swift /usr/share/openstack-puppet/modules/sysctl /usr/share/openstack-puppet/modules/tempest /usr/share/openstack-puppet/modules/timezone /usr/share/openstack-puppet/modules/tomcat /usr/share/openstack-puppet/modules/tripleo /usr/share/openstack-puppet/modules/trove /usr/share/openstack-puppet/modules/uchiwa /usr/share/openstack-puppet/modules/vcsrepo /usr/share/openstack-puppet/modules/vlan /usr/share/openstack-puppet/modules/vswitch /usr/share/openstack-puppet/modules/xinetd /usr/share/openstack-puppet/modules/zaqar /usr/share/openstack-puppet/modules/zookeeper /etc/puppet/modules/
+dib-run-parts lun oct 30 12:54:02 EDT 2017 75-puppet-modules-package completed
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Running /tmp/tmpDZq0UP/install.d/99-install-config-templates
+++ os-apply-config --print-templates
++ TEMPLATE_ROOT=/usr/libexec/os-apply-config/templates
+++ dirname /tmp/tmpDZq0UP/install.d/99-install-config-templates
++ TEMPLATE_SOURCE=/tmp/tmpDZq0UP/install.d/../os-apply-config
++ mkdir -p /usr/libexec/os-apply-config/templates
++ '[' -d /tmp/tmpDZq0UP/install.d/../os-apply-config ']'
++ rsync '--exclude=.*.swp' -Cr /tmp/tmpDZq0UP/install.d/../os-apply-config/ /usr/libexec/os-apply-config/templates/
+dib-run-parts lun oct 30 12:54:02 EDT 2017 99-install-config-templates completed
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Running /tmp/tmpDZq0UP/install.d/99-os-refresh-config-install-scripts
+++ os-refresh-config --print-base
++ SCRIPT_BASE=/usr/libexec/os-refresh-config
+++ dirname /tmp/tmpDZq0UP/install.d/99-os-refresh-config-install-scripts
++ SCRIPT_SOURCE=/tmp/tmpDZq0UP/install.d/../os-refresh-config
++ rsync -r /tmp/tmpDZq0UP/install.d/../os-refresh-config/ /usr/libexec/os-refresh-config/
+dib-run-parts lun oct 30 12:54:02 EDT 2017 99-os-refresh-config-install-scripts completed
+dib-run-parts lun oct 30 12:54:02 EDT 2017 ----------------------- PROFILING -----------------------
+dib-run-parts lun oct 30 12:54:02 EDT 2017
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Target: install.d
+dib-run-parts lun oct 30 12:54:02 EDT 2017
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Script                                     Seconds
+dib-run-parts lun oct 30 12:54:02 EDT 2017 ---------------------------------------  ----------
+dib-run-parts lun oct 30 12:54:02 EDT 2017
+dib-run-parts Mon Oct 30 12:54:02 EDT 2017 02-puppet-stack-config                        0.601
+dib-run-parts Mon Oct 30 12:54:02 EDT 2017 10-hiera-yaml-symlink                         0.006
+dib-run-parts Mon Oct 30 12:54:02 EDT 2017 10-puppet-stack-config-puppet-module          0.008
+dib-run-parts Mon Oct 30 12:54:02 EDT 2017 11-create-template-root                       0.139
+dib-run-parts Mon Oct 30 12:54:02 EDT 2017 75-puppet-modules-package                     0.011
+dib-run-parts Mon Oct 30 12:54:02 EDT 2017 99-install-config-templates                   0.185
+dib-run-parts Mon Oct 30 12:54:02 EDT 2017 99-os-refresh-config-install-scripts          0.096
+dib-run-parts lun oct 30 12:54:02 EDT 2017
+dib-run-parts lun oct 30 12:54:02 EDT 2017 --------------------- END PROFILING ---------------------
+INFO: 2017-10-30 12:54:02,777 -- ############### End stdout/stderr logging ###############
+INFO: 2017-10-30 12:54:02,777 --   Running hook post-install
+INFO: 2017-10-30 12:54:02,777 --     Skipping hook post-install, the hook directory doesn't exist at /tmp/tmpDZq0UP/post-install.d
+INFO: 2017-10-30 12:54:02,781 -- Ending run of instack.
+Instack completed successfully
+Running os-refresh-config
+[2017-10-30 12:54:02,856] (os-refresh-config) [INFO] Starting phase configure
+dib-run-parts lun oct 30 12:54:02 EDT 2017 Running /usr/libexec/os-refresh-config/configure.d/20-os-apply-config
+[2017/10/30 12:54:02 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
+[2017/10/30 12:54:03 PM] [INFO] writing /etc/os-net-config/config.json
+[2017/10/30 12:54:03 PM] [INFO] writing /root/stackrc
+[2017/10/30 12:54:03 PM] [INFO] writing /root/tripleo-undercloud-passwords
+[2017/10/30 12:54:03 PM] [INFO] writing /etc/puppet/hiera.yaml
+[2017/10/30 12:54:03 PM] [INFO] writing /var/opt/undercloud-stack/masquerade
+[2017/10/30 12:54:03 PM] [INFO] writing /etc/puppet/hieradata/RedHat.yaml
+[2017/10/30 12:54:03 PM] [INFO] writing /etc/puppet/hieradata/CentOS.yaml
+[2017/10/30 12:54:03 PM] [INFO] writing /var/run/heat-config/heat-config
+[2017/10/30 12:54:03 PM] [INFO] writing /etc/os-collect-config.conf
+[2017/10/30 12:54:03 PM] [INFO] success
+dib-run-parts lun oct 30 12:54:03 EDT 2017 20-os-apply-config completed
+dib-run-parts lun oct 30 12:54:03 EDT 2017 Running /usr/libexec/os-refresh-config/configure.d/30-reload-keepalived
++ systemctl is-enabled keepalived
+Failed to get unit file state for keepalived.service: No such file or directory
+dib-run-parts lun oct 30 12:54:03 EDT 2017 30-reload-keepalived completed
+dib-run-parts lun oct 30 12:54:03 EDT 2017 Running /usr/libexec/os-refresh-config/configure.d/40-hiera-datafiles
+[2017/10/30 12:54:03 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
+dib-run-parts lun oct 30 12:54:03 EDT 2017 40-hiera-datafiles completed
+dib-run-parts lun oct 30 12:54:03 EDT 2017 Running /usr/libexec/os-refresh-config/configure.d/40-truncate-nova-config
++ set -o pipefail
++ '[' -f /etc/nova/nova.conf ']'
+dib-run-parts lun oct 30 12:54:03 EDT 2017 40-truncate-nova-config completed
+dib-run-parts lun oct 30 12:54:03 EDT 2017 Running /usr/libexec/os-refresh-config/configure.d/50-puppet-stack-config
++ set -o pipefail
++ puppet_apply puppet apply --detailed-exitcodes /etc/puppet/manifests/puppet-stack-config.pp
++ set +e
++ puppet apply --detailed-exitcodes /etc/puppet/manifests/puppet-stack-config.pp
++ awk '{print strftime("%Y-%m-%d %H:%M:%S") " - "$0; fflush()}'
+2017-10-30 12:54:09 - Notice: Scope(Class[Tripleo::Firewall::Post]): At this stage, all network traffic is blocked.
+2017-10-30 12:54:11 - Warning: Scope(Class[Keystone]): Fernet token is recommended in Mitaka release. The default for token_provider will be changed to 'fernet' in O release.
+2017-10-30 12:54:13 - Warning: Scope(Class[Glance::Api]): glance::api::keystone_tenant is deprecated, please use glance::api::authtoken::project_name
+2017-10-30 12:54:14 - Warning: Scope(Class[Glance::Registry]): glance::registry::keystone_tenant is deprecated, please use glance::registry::authtoken::project_name
+2017-10-30 12:54:14 - Warning: Scope(Class[Nova]): Could not look up qualified variable '::nova::scheduler::filter::cpu_allocation_ratio'; class ::nova::scheduler::filter has not been evaluated
+2017-10-30 12:54:14 - Warning: Scope(Class[Nova]): Could not look up qualified variable '::nova::scheduler::filter::ram_allocation_ratio'; class ::nova::scheduler::filter has not been evaluated
+2017-10-30 12:54:14 - Warning: Scope(Class[Nova]): Could not look up qualified variable '::nova::scheduler::filter::disk_allocation_ratio'; class ::nova::scheduler::filter has not been evaluated
+2017-10-30 12:54:14 - Warning: Scope(Class[Nova::Wsgi::Apache]): deploying Nova API in WSGI with Apache is not recommended by Nova team. See LP#1661360.
+2017-10-30 12:54:15 - Warning: Scope(Class[Nova::Compute]): compute_manager is marked as deprecated in Nova but still needed when Ironic is used. It will be removed once Nova removes it.
+2017-10-30 12:54:16 - Warning: Scope(Class[Swift::Proxy::Authtoken]): identity_uri is deprecated and will be removed, please use auth_url instead
+2017-10-30 12:54:16 - Warning: Scope(Class[Swift::Proxy::Authtoken]): admin_tenant_name is deprecated and will be removed, please use project_name instead
+2017-10-30 12:54:16 - Warning: Scope(Class[Swift::Proxy::Authtoken]): admin_password is deprecated and will be removed, please use password isntead
+2017-10-30 12:54:16 - Warning: Scope(Class[Heat]): keystone_user_domain_id is deprecated, use the name option instead.
+2017-10-30 12:54:16 - Warning: Scope(Class[Heat]): keystone_project_domain_id is deprecated, use the name option instead.
+2017-10-30 12:54:16 - Warning: Scope(Class[Heat]): Default value for rabbit_heartbeat_timeout_threshold parameter is different from OpenStack project defaults
+2017-10-30 12:54:17 - Warning: Scope(Class[Ironic::Inspector]): After Newton cycle ::ironic::inspector won't provide           tftpboot and httpboot setup, please include ::ironic::pxe
+2017-10-30 12:54:18 - Warning: You cannot collect exported resources without storeconfigs being set; the collection will be ignored on line 100 in file /etc/puppet/modules/mistral/manifests/api.pp
+2017-10-30 12:54:21 - Warning: Scope(Neutron::Plugins::Ml2::Type_driver[local]): local type_driver is useful only for single-box, because it provides no connectivity between hosts
+2017-10-30 12:54:26 - Notice: Compiled catalog for undercloud in environment production in 18.70 seconds
+2017-10-30 12:54:39 - Notice: /Stage[setup]/Vswitch::Ovs/Package[openvswitch]/ensure: created
+2017-10-30 12:54:39 - Notice: /Stage[setup]/Vswitch::Ovs/Service[openvswitch]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 12:54:39 - Notice: /Stage[setup]/Firewall::Linux::Redhat/File[/etc/sysconfig/iptables]/ensure: created
+2017-10-30 12:54:44 - Notice: /Stage[setup]/Tripleo::Network::Os_net_config/Exec[os-net-config]/returns: executed successfully
+2017-10-30 12:54:44 - Notice: /Stage[setup]/Tripleo::Network::Os_net_config/Exec[trigger-keepalived-restart]: Triggered 'refresh' from 1 events
+2017-10-30 12:54:46 - Notice: /Stage[setup]/Firewall::Linux::Redhat/Package[iptables-services]/ensure: created
+2017-10-30 12:54:46 - Notice: /Stage[setup]/Firewall::Linux::Redhat/Exec[/usr/bin/systemctl daemon-reload]/returns: executed successfully
+2017-10-30 12:54:46 - Notice: /Stage[setup]/Firewall::Linux::Redhat/Service[iptables]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 12:54:46 - Notice: /Stage[setup]/Tripleo::Firewall::Pre/Tripleo::Firewall::Rule[002 accept all to lo interface]/Firewall[002 accept all to lo interface]/ensure: created
+2017-10-30 12:54:46 - Notice: /Stage[setup]/Tripleo::Firewall::Pre/Tripleo::Firewall::Rule[001 accept all icmp]/Firewall[001 accept all icmp]/ensure: created
+2017-10-30 12:54:46 - Notice: /Stage[setup]/Tripleo::Firewall::Pre/Tripleo::Firewall::Rule[000 accept related established rules]/Firewall[000 accept related established rules]/ensure: created
+2017-10-30 12:54:46 - Notice: /Stage[setup]/Tripleo::Firewall::Pre/Tripleo::Firewall::Rule[003 accept ssh]/Firewall[003 accept ssh]/ensure: created
+2017-10-30 12:54:47 - Notice: /Stage[main]/Main/Package[firewalld]/ensure: created
+2017-10-30 12:55:10 - Notice: /Stage[main]/Mistral/Package[mistral-common]/ensure: created
+2017-10-30 12:55:50 - Notice: /Stage[main]/Tripleo::Profile::Base::Docker_registry/Package[docker]/ensure: created
+2017-10-30 12:55:52 - Notice: /Stage[main]/Main/Package[python-dracclient]/ensure: created
+2017-10-30 12:55:54 - Notice: /Stage[main]/Xinetd/Package[xinetd]/ensure: created
+2017-10-30 12:55:54 - Notice: /Stage[main]/Tripleo::Selinux/File[/etc/selinux/config]/content: content changed '{md5}a97ac66cf758dceb5eeafa2d83c8e6f3' to '{md5}1b476ce188acf89a99c4da6ae6f0e57f'
+2017-10-30 12:55:54 - Notice: /Stage[main]/Tripleo::Selinux/File[/etc/selinux/config]/mode: mode changed '0644' to '0444'
+2017-10-30 12:55:54 - Notice: /Stage[main]/Mistral/Mistral_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 12:55:56 - Notice: /Stage[main]/Memcached/Package[memcached]/ensure: created
+2017-10-30 12:55:56 - Notice: /Stage[main]/Memcached/File[/etc/sysconfig/memcached]/content: content changed '{md5}a50ed62e82d31fb4cb2de2226650c545' to '{md5}ad2c0fddacc5b38febe15c0f5baab81c'
+2017-10-30 12:55:56 - Notice: /Stage[main]/Memcached/Service[memcached]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 12:56:01 - Notice: /Stage[main]/Glance/Package[openstack-glance]/ensure: created
+2017-10-30 12:56:01 - Notice: /Stage[main]/Tripleo::Profile::Base::Docker_registry/File_line[docker insecure registry]/ensure: created
+2017-10-30 12:56:01 - Notice: /Stage[main]/Mistral::Logging/Oslo::Log[mistral_config]/Mistral_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 12:56:01 - Notice: /Stage[main]/Mistral/Mistral_config[keystone_authtoken/identity_uri]/ensure: created
+2017-10-30 12:56:01 - Notice: /Stage[main]/Mistral/Oslo::Messaging::Rabbit[mistral_config]/Mistral_config[oslo_messaging_rabbit/rabbit_userid]/ensure: created
+2017-10-30 12:56:01 - Notice: /Stage[main]/Mistral/Oslo::Messaging::Rabbit[mistral_config]/Mistral_config[oslo_messaging_rabbit/rabbit_host]/ensure: created
+2017-10-30 12:56:04 - Notice: /Stage[main]/Tripleo::Profile::Base::Docker_registry/Package[docker-distribution]/ensure: created
+2017-10-30 12:56:04 - Notice: /Stage[main]/Tripleo::Profile::Base::Docker_registry/File[/etc/docker-distribution/registry/config.yml]/content: content changed '{md5}fcc7b86bd3a8b9b41577e3af434de461' to '{md5}7bec1d7568b3fda481c67c509545f1f4'
+2017-10-30 12:56:13 - Notice: /Stage[main]/Neutron/Package[neutron]/ensure: created
+2017-10-30 12:56:15 - Notice: /Stage[main]/Tripleo::Profile::Base::Docker_registry/Service[docker]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 12:59:45 - Notice: /Stage[main]/Main/Package[openstack-selinux]/ensure: created
+2017-10-30 12:59:50 - Notice: /Stage[main]/Mysql::Client::Install/Package[mysql_client]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Mongodb::Server::Install/Package[mongodb_server]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Staging/File[/opt/staging]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Neutron::Agents::Ml2::Ovs/Service[ovs-cleanup-service]/enable: enable changed 'false' to 'true'
+2017-10-30 12:59:55 - Notice: /Stage[main]/Mistral::Cors/Oslo::Cors[mistral_config]/Mistral_config[cors/allow_headers]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Mistral::Cors/Oslo::Cors[mistral_config]/Mistral_config[cors/expose_headers]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Mistral::Engine/Mistral_config[execution_expiration_policy/evaluation_interval]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Mistral::Engine/Mistral_config[engine/execution_field_size_limit_kb]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Mistral::Engine/Mistral_config[execution_expiration_policy/older_than]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Main/File[/var/log/journal]/ensure: created
+2017-10-30 12:59:55 - Notice: /Stage[main]/Main/Service[systemd-journald]: Triggered 'refresh' from 1 events
+2017-10-30 12:59:57 - Notice: /Stage[main]/Apache::Mod::Mime/Package[mailcap]/ensure: created
+2017-10-30 13:00:00 - Notice: /Stage[main]/Tripleo::Profile::Base::Ui/Package[openstack-tripleo-ui]/ensure: created
+2017-10-30 13:00:00 - Notice: /Stage[main]/Tripleo::Profile::Base::Docker_registry/Service[docker-distribution]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:00:02 - Notice: /Stage[main]/Mistral::Engine/Package[mistral-engine]/ensure: created
+2017-10-30 13:00:02 - Notice: /Stage[main]/Mistral/Oslo::Messaging::Rabbit[mistral_config]/Mistral_config[oslo_messaging_rabbit/rabbit_password]/ensure: created
+2017-10-30 13:00:10 - Notice: /Stage[main]/Rabbitmq::Install/Package[rabbitmq-server]/ensure: created
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq/Rabbitmq_plugin[rabbitmq_management]/ensure: created
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq::Config/File[/etc/rabbitmq]/owner: owner changed 'rabbitmq' to 'root'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq::Config/File[/etc/rabbitmq]/group: group changed 'rabbitmq' to 'root'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq::Config/File[rabbitmq.config]/content: content changed '{md5}c8e444b74c6294006936abdaea55a079' to '{md5}a15944eb26636576add8aa2f885234d3'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq::Config/File[rabbitmq.config]/owner: owner changed 'rabbitmq' to 'root'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq::Config/File[rabbitmq.config]/group: group changed 'rabbitmq' to 'root'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq::Config/File[rabbitmqadmin.conf]/ensure: defined content as '{md5}44d4ef5cb86ab30e6127e83939ef09c4'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Mysql::Server::Config/File[mysql-config-file]/ensure: defined content as '{md5}e0edd398425598127415535db08b6bad'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Rabbitmq::Config/File[/etc/systemd/system/rabbitmq-server.service.d]/ensure: created
+2017-10-30 13:00:13 - Notice: /Stage[main]/Xinetd/File[/etc/xinetd.conf]/content: content changed '{md5}9ff8cc688dd9f0dfc45e5afd25c427a7' to '{md5}7d37008224e71625019cb48768f267e7'
+2017-10-30 13:00:13 - Notice: /Stage[main]/Xinetd/File[/etc/xinetd.conf]/mode: mode changed '0600' to '0644'
+2017-10-30 13:00:19 - Notice: /Stage[main]/Mysql::Server::Install/Package[mysql-server]/ensure: created
+2017-10-30 13:00:19 - Notice: /Stage[main]/Tripleo::Profile::Base::Validations/User[validations]/ensure: created
+2017-10-30 13:00:26 - Notice: /Stage[main]/Tripleo::Profile::Base::Validations/Package[openstack-tripleo-validations]/ensure: created
+2017-10-30 13:00:26 - Notice: /Stage[main]/Mistral::Api/Mistral_config[api/api_workers]/ensure: created
+2017-10-30 13:00:35 - Notice: /Stage[main]/Main/Package[subunit-filters]/ensure: created
+2017-10-30 13:00:43 - Notice: /Stage[main]/Nova/Package[python-nova]/ensure: created
+2017-10-30 13:00:45 - Notice: /Stage[main]/Nova/Package[nova-common]/ensure: created
+2017-10-30 13:00:45 - Notice: /Stage[main]/Mistral::Cors/Oslo::Cors[mistral_config]/Mistral_config[cors/allowed_origin]/ensure: created
+2017-10-30 13:00:48 - Notice: /Stage[main]/Nova::Compute/Nova::Generic_service[compute]/Package[nova-compute]/ensure: created
+2017-10-30 13:00:49 - Notice: /Stage[main]/Main/Augeas[lvm.conf]/returns: executed successfully
+2017-10-30 13:00:55 - Notice: /Stage[main]/Main/Package[openstack-tempest]/ensure: created
+2017-10-30 13:00:57 - Notice: /Stage[main]/Ironic/Package[ironic-lib]/ensure: created
+2017-10-30 13:01:01 - Notice: /Stage[main]/Ironic/Package[ironic-common]/ensure: created
+2017-10-30 13:01:01 - Notice: /Stage[main]/Main/File[dnsmasq-ironic.conf]/ensure: created
+2017-10-30 13:01:03 - Notice: /Stage[main]/Ironic::Pxe/Package[ipxe]/ensure: created
+2017-10-30 13:01:05 - Notice: /Stage[main]/Ironic::Pxe/Package[tftp-server]/ensure: created
+2017-10-30 13:01:07 - Notice: /Stage[main]/Mistral::Api/Package[mistral-api]/ensure: created
+2017-10-30 13:01:07 - Notice: /Stage[main]/Mistral::Policy/Oslo::Policy[mistral_config]/Mistral_config[oslo_policy/policy_file]/ensure: created
+2017-10-30 13:01:07 - Notice: /Stage[main]/Mistral/Mistral_config[keystone_authtoken/admin_user]/ensure: created
+2017-10-30 13:01:10 - Notice: /Stage[main]/Swift/Package[swift]/ensure: created
+2017-10-30 13:01:10 - Notice: /Stage[main]/Swift/File[/var/lib/swift]/group: group changed 'root' to 'swift'
+2017-10-30 13:01:10 - Notice: /Stage[main]/Swift/File[/etc/swift]/owner: owner changed 'root' to 'swift'
+2017-10-30 13:01:10 - Notice: /Stage[main]/Swift/File[/etc/swift]/group: group changed 'root' to 'swift'
+2017-10-30 13:01:10 - Notice: /Stage[main]/Swift/File[/etc/swift/swift.conf]/owner: owner changed 'root' to 'swift'
+2017-10-30 13:01:10 - Notice: /Stage[main]/Main/File[/srv/node]/ensure: created
+2017-10-30 13:01:10 - Notice: /Stage[main]/Swift/File[/var/run/swift]/group: group changed 'root' to 'swift'
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar/Package[zaqar-common]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Messaging::Mongodb/Zaqar_config[drivers/message_store]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Keystone::Authtoken/Keystone::Resource::Authtoken[zaqar_config]/Zaqar_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar/Zaqar_config[transport/max_messages_post_size]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Keystone::Authtoken/Keystone::Resource::Authtoken[zaqar_config]/Zaqar_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar/Zaqar_config[DEFAULT/unreliable]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Keystone::Authtoken/Keystone::Resource::Authtoken[zaqar_config]/Zaqar_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Transport::Wsgi/Zaqar_config[drivers:transport:wsgi/bind]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Management::Mongodb/Zaqar_config[drivers/management_store]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Transport::Websocket/Zaqar_config[drivers:transport:websocket/bind]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar/Zaqar_config[storage/message_pipeline]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Keystone::Authtoken/Keystone::Resource::Authtoken[zaqar_config]/Zaqar_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Main/Zaqar::Server_instance[1]/File[/etc/zaqar/1.conf]/ensure: defined content as '{md5}7750571c15d53265e703cc60ea7938af'
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Keystone::Authtoken/Keystone::Resource::Authtoken[zaqar_config]/Zaqar_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:01:18 - Notice: /Stage[main]/Zaqar::Keystone::Authtoken/Keystone::Resource::Authtoken[zaqar_config]/Zaqar_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:01:20 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Package[neutron-plugin-ml2]/ensure: created
+2017-10-30 13:01:20 - Notice: /Stage[main]/Main/File[/etc/systemd/system/mariadb.service.d]/ensure: created
+2017-10-30 13:01:20 - Notice: /Stage[main]/Main/File[/etc/systemd/system/mariadb.service.d/limits.conf]/ensure: defined content as '{md5}8eb9ff6c576b9869944215af3a568c2e'
+2017-10-30 13:01:21 - Notice: /Stage[main]/Main/Exec[systemctl-daemon-reload]: Triggered 'refresh' from 1 events
+2017-10-30 13:01:22 - Notice: /Stage[main]/Nova::Conductor/Nova::Generic_service[conductor]/Package[nova-conductor]/ensure: created
+2017-10-30 13:01:23 - Notice: /Stage[main]/Rabbitmq::Config/File[/etc/systemd/system/rabbitmq-server.service.d/limits.conf]/ensure: defined content as '{md5}8eb9ff6c576b9869944215af3a568c2e'
+2017-10-30 13:01:23 - Notice: /Stage[main]/Rabbitmq::Config/Exec[rabbitmq-systemd-reload]: Triggered 'refresh' from 1 events
+2017-10-30 13:01:24 - Notice: /Stage[main]/Ironic::Conductor/Package[ironic-conductor]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Package[ironic-inspector]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic-inspector::install::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[ironic/auth_url]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[swift/password]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[processing/keep_ports]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector::Authtoken/Keystone::Resource::Authtoken[ironic_inspector_config]/Ironic_inspector_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[ironic/username]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[firewall/dnsmasq_interface]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[processing/ramdisk_logs_dir]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[swift/auth_type]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[DEFAULT/auth_strategy]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[processing/processing_hooks]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[ironic/retry_interval]/ensure: created
+2017-10-30 13:01:27 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[ironic/password]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector::Logging/Ironic_inspector_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[database/connection]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[ironic/auth_type]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/File[/etc/ironic-inspector/dnsmasq.conf]/content: content changed '{md5}9eabe6f969928fde6524d0dd00781479' to '{md5}ed5715109fcc0b9c18e2e4b1363ea820'
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[processing/store_data]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[ironic/max_retries]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector::Authtoken/Keystone::Resource::Authtoken[ironic_inspector_config]/Ironic_inspector_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[DEFAULT/listen_address]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector::Authtoken/Keystone::Resource::Authtoken[ironic_inspector_config]/Ironic_inspector_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector::Authtoken/Keystone::Resource::Authtoken[ironic_inspector_config]/Ironic_inspector_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[ironic/project_name]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[swift/auth_url]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector::Authtoken/Keystone::Resource::Authtoken[ironic_inspector_config]/Ironic_inspector_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[processing/enable_setting_ipmi_credentials]/ensure: created
+2017-10-30 13:01:28 - Notice: /Stage[main]/Rabbitmq::Config/File[/etc/rabbitmq/ssl]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Api/Package[ironic-api]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic::install::end]: Triggered 'refresh' from 4 events
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Conductor/Ironic_config[deploy/http_url]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic/Ironic_config[glance/glance_api_insecure]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Policy/Oslo::Policy[ironic_config]/Ironic_config[oslo_policy/policy_file]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic/Ironic_config[DEFAULT/my_ip]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Drivers::Agent/Ironic_config[agent/deploy_logs_collect]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Cors/Oslo::Cors[ironic_config]/Ironic_config[cors/expose_headers]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Cors/Oslo::Cors[ironic_config]/Ironic_config[cors/allowed_origin]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic/Oslo::Messaging::Rabbit[ironic_config]/Ironic_config[oslo_messaging_rabbit/rabbit_userid]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Conductor/Ironic_config[conductor/max_time_interval]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Drivers::Ipmi/Ironic_config[ipmi/retry_timeout]/ensure: created
+2017-10-30 13:01:30 - Notice: /Stage[main]/Ironic::Cors/Oslo::Cors[ironic_config]/Ironic_config[cors/allow_headers]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Cors/Oslo::Cors[ironic_config]/Ironic_config[cors/allow_methods]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Pxe/File[/tftpboot]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Pxe/File[/tftpboot/map-file]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Conductor/Ironic_config[DEFAULT/enabled_drivers]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic/Oslo::Messaging::Rabbit[ironic_config]/Ironic_config[oslo_messaging_rabbit/rabbit_host]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic/Ironic_config[DEFAULT/auth_strategy]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Api/Ironic_config[api/host_ip]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic/Oslo::Messaging::Default[ironic_config]/Ironic_config[DEFAULT/rpc_response_timeout]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic/Oslo::Messaging::Rabbit[ironic_config]/Ironic_config[oslo_messaging_rabbit/rabbit_password]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Conductor/Ironic_config[conductor/api_url]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Conductor/Ironic_config[conductor/force_power_state_during_sync]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Conductor/Ironic_config[conductor/automated_clean]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Cors/Oslo::Cors[ironic_config]/Ironic_config[cors/max_age]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Drivers::Agent/Ironic_config[agent/deploy_logs_storage_backend]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic/Oslo::Messaging::Rabbit[ironic_config]/Ironic_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Api/Ironic_config[neutron/url]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Pxe/Xinetd::Service[tftp]/File[/etc/xinetd.d/tftp]/content: content changed '{md5}678efd3887a91cd4e0955aa6c8b12257' to '{md5}8fe9239f84f7ed8d0ce6acad71a17e3e'
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Logging/Oslo::Log[ironic_config]/Ironic_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Pxe/File[/httpboot]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Drivers::Ilo/Ironic_config[ilo/default_boot_mode]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic/Ironic_config[glance/glance_num_retries]/ensure: created
+2017-10-30 13:01:31 - Notice: /Stage[main]/Ironic::Api/Ironic_config[api/max_limit]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Ironic::Pxe/File[/tftpboot/undionly.kpxe]/ensure: defined content as '{md5}60d84c8e9035fac59c73ed4cee8dc82c'
+2017-10-30 13:01:32 - Notice: /Stage[main]/Ironic::Api::Authtoken/Keystone::Resource::Authtoken[ironic_config]/Ironic_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Ironic::Api::Authtoken/Keystone::Resource::Authtoken[ironic_config]/Ironic_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Ironic::Api::Authtoken/Keystone::Resource::Authtoken[ironic_config]/Ironic_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Ironic::Api::Authtoken/Keystone::Resource::Authtoken[ironic_config]/Ironic_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Ironic::Api::Authtoken/Keystone::Resource::Authtoken[ironic_config]/Ironic_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Ironic::Logging/Oslo::Log[ironic_config]/Ironic_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Zaqar::Messaging::Mongodb/Zaqar_config[drivers:message_store:mongodb/uri]/ensure: created
+2017-10-30 13:01:32 - Notice: /Stage[main]/Mistral/Mistral_config[keystone_authtoken/admin_password]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Agents::Ml2::Ovs/Package[neutron-ovs-agent]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Deps/Anchor[neutron::install::end]: Triggered 'refresh' from 3 events
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron/Oslo::Messaging::Rabbit[neutron_config]/Neutron_config[oslo_messaging_rabbit/rabbit_hosts]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron/Neutron_config[DEFAULT/dns_domain]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Server/Neutron_config[DEFAULT/router_scheduler_driver]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Quota/Neutron_config[quotas/quota_network_gateway]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/resync_interval]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Logging/Oslo::Log[neutron_config]/Neutron_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:01:34 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron::Plugins::Ml2::Type_driver[vxlan]/Neutron_plugin_ml2[ml2_type_vxlan/vni_ranges]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron/Neutron_config[agent/root_helper]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron/Oslo::Messaging::Rabbit[neutron_config]/Neutron_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/enable_metadata_network]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/dnsmasq_config_file]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron/Oslo::Messaging::Default[neutron_config]/Neutron_config[DEFAULT/control_exchange]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron_plugin_ml2[ml2/type_drivers]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Main/Neutron_config[DEFAULT/notification_driver]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron_plugin_ml2[ml2/path_mtu]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron/Neutron_config[DEFAULT/core_plugin]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/enable_isolated_metadata]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Ml2::Ovs/Neutron_agent_ovs[ovs/integration_bridge]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Ml2::Ovs/Neutron_agent_ovs[securitygroup/firewall_driver]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Server/Neutron_config[DEFAULT/rpc_workers]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/project_domain_name]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron_plugin_ml2[ml2/tenant_network_types]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Policy/Oslo::Policy[neutron_config]/Neutron_config[oslo_policy/policy_file]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron/Neutron_config[DEFAULT/auth_strategy]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Server/Neutron_config[DEFAULT/max_l3_agents_per_router]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron/Oslo::Concurrency[neutron_config]/Neutron_config[oslo_concurrency/lock_path]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Server/Neutron_config[DEFAULT/api_workers]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron_plugin_ml2[ml2/mechanism_drivers]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Quota/Neutron_config[quotas/quota_packet_filter]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Logging/Oslo::Log[neutron_config]/Neutron_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Ml2::Ovs/Neutron_agent_ovs[ovs/bridge_mappings]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Quota/Neutron_config[quotas/quota_firewall_rule]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Ml2::Ovs/Neutron_agent_ovs[agent/drop_flows_on_start]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Quota/Neutron_config[quotas/quota_port]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Plugins::Ml2/File[/etc/default/neutron-server]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron/Neutron_config[DEFAULT/bind_host]/ensure: created
+2017-10-30 13:01:35 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/root_helper]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron::Plugins::Ml2::Type_driver[gre]/Neutron_plugin_ml2[ml2_type_gre/tunnel_id_ranges]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/interface_driver]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron/Oslo::Messaging::Rabbit[neutron_config]/Neutron_config[oslo_messaging_rabbit/rabbit_password]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron/Neutron_config[DEFAULT/dhcp_agents_per_network]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/dhcp_driver]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Plugins::Ml2/File[/etc/neutron/plugin.ini]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/user_domain_name]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Neutron_dhcp_agent_config[DEFAULT/state_path]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Ironic::Drivers::Agent/Ironic_config[agent/deploy_logs_local_path]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron::Plugins::Ml2::Type_driver[vxlan]/Neutron_plugin_ml2[ml2_type_vxlan/vxlan_group]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Ironic::Inspector::Logging/Ironic_inspector_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Ironic::Pxe/Ironic::Pxe::Tftpboot_file[chain.c32]/File[/tftpboot/chain.c32]/ensure: defined content as '{md5}af5c5fd5623d1bc2221f59eab51c9b41'
+2017-10-30 13:01:36 - Notice: /Stage[main]/Ironic::Inspector::Authtoken/Keystone::Resource::Authtoken[ironic_inspector_config]/Ironic_inspector_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Neutron::Keystone::Authtoken/Keystone::Resource::Authtoken[neutron_config]/Neutron_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:01:36 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[132 mistral]/Firewall[132 mistral]/ensure: created
+2017-10-30 13:01:37 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[137 ironic-inspector]/Firewall[137 ironic-inspector]/ensure: created
+2017-10-30 13:01:37 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[138 docker registry]/Firewall[138 docker registry]/ensure: created
+2017-10-30 13:01:37 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[115 neutron dhcp input]/Firewall[115 neutron dhcp input]/ensure: created
+2017-10-30 13:01:37 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[103 mongod]/Firewall[103 mongod]/ensure: created
+2017-10-30 13:01:38 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[114 neutron server]/Firewall[114 neutron server]/ensure: created
+2017-10-30 13:01:38 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[123 swift storage]/Firewall[123 swift storage]/ensure: created
+2017-10-30 13:01:38 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[128 aodh]/Firewall[128 aodh]/ensure: created
+2017-10-30 13:01:39 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[108 redis]/Firewall[108 redis]/ensure: created
+2017-10-30 13:01:39 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[125 heat]/Firewall[125 heat]/ensure: created
+2017-10-30 13:01:39 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[140 network cidr nat]/Firewall[140 network cidr nat]/ensure: created
+2017-10-30 13:01:40 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[121 memcached]/Firewall[121 memcached]/ensure: created
+2017-10-30 13:01:40 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[127 snmp]/Firewall[127 snmp]/ensure: created
+2017-10-30 13:01:40 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[142 tripleo-ui]/Firewall[142 tripleo-ui]/ensure: created
+2017-10-30 13:01:41 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[111 keystone]/Firewall[111 keystone]/ensure: created
+2017-10-30 13:01:41 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[105 ntp]/Firewall[105 ntp]/ensure: created
+2017-10-30 13:01:41 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[126 horizon]/Firewall[126 horizon]/ensure: created
+2017-10-30 13:01:42 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[133 zaqar]/Firewall[133 zaqar]/ensure: created
+2017-10-30 13:01:42 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[136 trove]/Firewall[136 trove]/ensure: created
+2017-10-30 13:01:43 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[124 ceilometer]/Firewall[124 ceilometer]/ensure: created
+2017-10-30 13:01:43 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[119 cinder]/Firewall[119 cinder]/ensure: created
+2017-10-30 13:01:44 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[101 mongodb_config]/Firewall[101 mongodb_config]/ensure: created
+2017-10-30 13:01:44 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[118 neutron vxlan networks]/Firewall[118 neutron vxlan networks]/ensure: created
+2017-10-30 13:01:45 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[112 glance]/Firewall[112 glance]/ensure: created
+2017-10-30 13:01:45 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[102 mongodb_sharding]/Firewall[102 mongodb_sharding]/ensure: created
+2017-10-30 13:01:45 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[113 nova]/Firewall[113 nova]/ensure: created
+2017-10-30 13:01:46 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[141 libvirt network nat]/Firewall[141 libvirt network nat]/ensure: created
+2017-10-30 13:01:46 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[107 haproxy stats]/Firewall[107 haproxy stats]/ensure: created
+2017-10-30 13:01:47 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[110 ceph]/Firewall[110 ceph]/ensure: created
+2017-10-30 13:01:48 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[134 zaqar websockets]/Firewall[134 zaqar websockets]/ensure: created
+2017-10-30 13:01:48 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[131 novnc]/Firewall[131 novnc]/ensure: created
+2017-10-30 13:01:49 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[130 tftp]/Firewall[130 tftp]/ensure: created
+2017-10-30 13:01:49 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[135 ironic]/Firewall[135 ironic]/ensure: created
+2017-10-30 13:01:50 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[120 iscsi initiator]/Firewall[120 iscsi initiator]/ensure: created
+2017-10-30 13:01:50 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[122 swift proxy]/Firewall[122 swift proxy]/ensure: created
+2017-10-30 13:01:51 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[116 neutron dhcp output]/Firewall[116 neutron dhcp output]/ensure: created
+2017-10-30 13:01:51 - Notice: /Stage[main]/Tripleo::Profile::Base::Kernel/Sysctl::Value[net.ipv4.ip_nonlocal_bind]/Sysctl[net.ipv4.ip_nonlocal_bind]/ensure: created
+2017-10-30 13:01:51 - Notice: /Stage[main]/Tripleo::Profile::Base::Kernel/Sysctl::Value[net.ipv4.ip_nonlocal_bind]/Sysctl_runtime[net.ipv4.ip_nonlocal_bind]/val: val changed '0' to '1'
+2017-10-30 13:01:51 - Notice: /Stage[main]/Tripleo::Profile::Base::Kernel/Sysctl::Value[net.ipv6.ip_nonlocal_bind]/Sysctl[net.ipv6.ip_nonlocal_bind]/ensure: created
+2017-10-30 13:01:51 - Notice: /Stage[main]/Tripleo::Profile::Base::Kernel/Sysctl::Value[net.ipv6.ip_nonlocal_bind]/Sysctl_runtime[net.ipv6.ip_nonlocal_bind]/val: val changed '0' to '1'
+2017-10-30 13:01:51 - Notice: /Stage[main]/Ironic::Api/Ironic_config[api/port]/ensure: created
+2017-10-30 13:01:51 - Notice: /Stage[main]/Rsync::Server/Xinetd::Service[rsync]/File[/etc/xinetd.d/rsync]/ensure: created
+2017-10-30 13:01:51 - Notice: /Stage[main]/Xinetd/Service[xinetd]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:01:51 - Notice: /Stage[main]/Swift::Storage::All/Swift::Storage::Server[6002]/Concat[/etc/swift/account-server.conf]/File[/etc/swift/account-server.conf]/ensure: defined content as '{md5}b24ad91c76b47b8fe36819617c843a3d'
+2017-10-30 13:01:56 - Notice: /Stage[main]/Heat::Engine/Package[heat-engine]/ensure: created
+2017-10-30 13:01:57 - Notice: /Stage[main]/Heat::Api_cfn/Package[heat-api-cfn]/ensure: created
+2017-10-30 13:01:59 - Notice: /Stage[main]/Heat::Api/Package[heat-api]/ensure: created
+2017-10-30 13:02:01 - Notice: /Stage[main]/Mistral::Executor/Package[mistral-executor]/ensure: created
+2017-10-30 13:02:01 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron::Plugins::Ml2::Type_driver[vlan]/Neutron_plugin_ml2[ml2_type_vlan/network_vlan_ranges]/ensure: created
+2017-10-30 13:02:01 - Notice: /Stage[main]/Rabbitmq::Config/File[/etc/security/limits.d/rabbitmq-server.conf]/ensure: defined content as '{md5}5ddc6ba5fcaeddd5b1565e5adfda5236'
+2017-10-30 13:02:02 - Notice: /Stage[main]/Ironic::Pxe/File[/tftpboot/ipxe.efi]/ensure: defined content as '{md5}8f49ea062dadf0290b5f8b7e5f42a9b9'
+2017-10-30 13:02:02 - Notice: /Stage[main]/Ironic::Api/Ironic_config[api/api_workers]/ensure: created
+2017-10-30 13:02:08 - Notice: /Stage[main]/Apache/Package[httpd]/ensure: created
+2017-10-30 13:02:08 - Notice: /Stage[main]/Nova::Wsgi::Apache/Openstacklib::Wsgi::Apache[nova_api_wsgi]/File[/var/www/cgi-bin/nova]/ensure: created
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Wsgi/Apache::Mod[wsgi]/Package[mod_wsgi]/ensure: created
+2017-10-30 13:02:10 - Notice: /Stage[main]/Nova::Wsgi::Apache/Openstacklib::Wsgi::Apache[nova_api_wsgi]/File[nova_api_wsgi]/ensure: defined content as '{md5}87dec420e9b6e707b94b149f1432bad2'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[auth_digest]/File[auth_digest.load]/ensure: defined content as '{md5}df9e85f8da0b239fe8e698ae7ead4f60'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Mime/Apache::Mod[mime]/File[mime.load]/ensure: defined content as '{md5}e36257b9efab01459141d423cae57c7c'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[expires]/File[expires.load]/ensure: defined content as '{md5}f0825bad1e470de86ffabeb86dcc5d95'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Dav/Apache::Mod[dav]/File[dav.load]/ensure: defined content as '{md5}588e496251838c4840c14b28b5aa7881'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[authz_owner]/File[authz_owner.load]/ensure: defined content as '{md5}f30a9be1016df87f195449d9e02d1857'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[authz_groupfile]/File[authz_groupfile.load]/ensure: defined content as '{md5}ae005a36b3ac8c20af36c434561c8a75'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[authn_dbm]/File[authn_dbm.load]/ensure: defined content as '{md5}90ee8f8ef1a017cacadfda4225e10651'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Authn_core/Apache::Mod[authn_core]/File[authn_core.load]/ensure: defined content as '{md5}704d6e8b02b0eca0eba4083960d16c52'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Authz_user/Apache::Mod[authz_user]/File[authz_user.load]/ensure: defined content as '{md5}63594303ee808423679b1ea13dd5a784'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[log_config]/File[log_config.load]/ensure: defined content as '{md5}785d35cb285e190d589163b45263ca89'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[logio]/File[logio.load]/ensure: defined content as '{md5}084533c7a44e9129d0e6df952e2472b6'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Mime/File[mime.conf]/ensure: defined content as '{md5}9da85e58f3bd6c780ce76db603b7f028'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[access_compat]/File[access_compat.load]/ensure: defined content as '{md5}d5feb88bec4570e2dbc41cce7e0de003'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Version/Apache::Mod[version]/File[version.load]/ensure: defined content as '{md5}1c9243de22ace4dc8266442c48ae0c92'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Setenvif/File[setenvif.conf]/ensure: defined content as '{md5}c7ede4173da1915b7ec088201f030c28'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Actions/Apache::Mod[actions]/File[actions.load]/ensure: defined content as '{md5}599866dfaf734f60f7e2d41ee8235515'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Deflate/File[deflate.conf]/ensure: defined content as '{md5}a045d750d819b1e9dae3fbfb3f20edd5'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[authz_core]/File[authz_core.load]/ensure: defined content as '{md5}39942569bff2abdb259f9a347c7246bc'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Negotiation/File[negotiation.conf]/ensure: defined content as '{md5}47284b5580b986a6ba32580b6ffb9fd7'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Alias/Apache::Mod[alias]/File[alias.load]/ensure: defined content as '{md5}3cf2fa309ccae4c29a4b875d0894cd79'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Env/Apache::Mod[env]/File[env.load]/ensure: defined content as '{md5}d74184d40d0ee24ba02626a188ee7e1a'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Negotiation/Apache::Mod[negotiation]/File[negotiation.load]/ensure: defined content as '{md5}d262ee6a5f20d9dd7f87770638dc2ccd'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[authz_dbm]/File[authz_dbm.load]/ensure: defined content as '{md5}c1363277984d22f99b70f7dce8753b60'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Dir/File[dir.conf]/ensure: defined content as '{md5}c741d8ea840e6eb999d739eed47c69d7'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[usertrack]/File[usertrack.load]/ensure: defined content as '{md5}e95fbbf030fabec98b948f8dc217775c'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Prefork/File[/etc/httpd/conf.modules.d/prefork.conf]/ensure: defined content as '{md5}109c4f51dac10fc1b39373855e566d01'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Vhost_alias/Apache::Mod[vhost_alias]/File[vhost_alias.load]/ensure: defined content as '{md5}eca907865997d50d5130497665c3f82e'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[substitute]/File[substitute.load]/ensure: defined content as '{md5}8077c34a71afcf41c8fc644830935915'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Setenvif/Apache::Mod[setenvif]/File[setenvif.load]/ensure: defined content as '{md5}ec6c99f7cc8e35bdbcf8028f652c9f6d'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[unixd]/File[unixd.load]/ensure: defined content as '{md5}0e8468ecc1265f8947b8725f4d1be9c0'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Deflate/Apache::Mod[deflate]/File[deflate.load]/ensure: defined content as '{md5}2d1a1afcae0c70557251829a8586eeaf'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Wsgi/Apache::Mod[wsgi]/File[wsgi.load]/ensure: defined content as '{md5}e1795e051e7aae1f865fde0d3b86a507'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[auth_basic]/File[auth_basic.load]/ensure: defined content as '{md5}494bcf4b843f7908675d663d8dc1bdc8'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Prefork/Apache::Mpm[prefork]/File[/etc/httpd/conf.modules.d/prefork.load]/ensure: defined content as '{md5}157529aafcf03fa491bc924103e4608e'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Authn_file/Apache::Mod[authn_file]/File[authn_file.load]/ensure: defined content as '{md5}d41656680003d7b890267bb73621c60b'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Ext_filter/Apache::Mod[ext_filter]/File[ext_filter.load]/ensure: defined content as '{md5}76d5e0ac3411a4be57ac33ebe2e52ac8'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Wsgi/File[wsgi.conf]/ensure: defined content as '{md5}8b3feb3fc2563de439920bb2c52cbd11'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Speling/Apache::Mod[speling]/File[speling.load]/ensure: defined content as '{md5}f82e9e6b871a276c324c9eeffcec8a61'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Dir/Apache::Mod[dir]/File[dir.load]/ensure: defined content as '{md5}1bfb1c2a46d7351fc9eb47c659dee068'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Dav_fs/Apache::Mod[dav_fs]/File[dav_fs.load]/ensure: defined content as '{md5}2996277c73b1cd684a9a3111c355e0d3'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[include]/File[include.load]/ensure: defined content as '{md5}88095a914eedc3c2c184dd5d74c3954c'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[systemd]/File[systemd.load]/ensure: defined content as '{md5}26e5d44aae258b3e9d821cbbbd3e2826'
+2017-10-30 13:02:10 - Notice: /Stage[main]/Apache::Mod::Alias/File[alias.conf]/ensure: defined content as '{md5}983e865be85f5e0daaed7433db82995e'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[authz_host]/File[authz_host.load]/ensure: defined content as '{md5}d1045f54d2798499ca0f030ca0eef920'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Mod::Suexec/Apache::Mod[suexec]/File[suexec.load]/ensure: defined content as '{md5}c7d5c61c534ba423a79b0ae78ff9be35'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Mod::Cache/Apache::Mod[cache]/File[cache.load]/ensure: defined content as '{md5}01e4d392225b518a65b0f7d6c4e21d29'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Mod::Rewrite/Apache::Mod[rewrite]/File[rewrite.load]/ensure: defined content as '{md5}26e2683352fc1599f29573ff0d934e79'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.d/autoindex.conf]/ensure: removed
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.d/userdir.conf]/ensure: removed
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.d/welcome.conf]/ensure: removed
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.d/README]/ensure: removed
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Mod::Autoindex/Apache::Mod[autoindex]/File[autoindex.load]/ensure: defined content as '{md5}515cdf5b573e961a60d2931d39248648'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Default_mods/Apache::Mod[authn_anon]/File[authn_anon.load]/ensure: defined content as '{md5}bf57b94b5aec35476fc2a2dc3861f132'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Mod::Autoindex/File[autoindex.conf]/ensure: defined content as '{md5}2421a3c6df32c7e38c2a7a22afdf5728'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Apache::Mod::Filter/Apache::Mod[filter]/File[filter.load]/ensure: defined content as '{md5}66a1e2064a140c3e7dca7ac33877700e'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[106 vrrp]/Firewall[106 vrrp]/ensure: created
+2017-10-30 13:02:11 - Notice: /Stage[main]/Swift::Storage::All/Swift::Storage::Server[6000]/Concat[/etc/swift/object-server.conf]/File[/etc/swift/object-server.conf]/ensure: defined content as '{md5}fb9f21e62ea049d3932ff1a1476d349c'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Ironic::Pxe/Ironic::Pxe::Tftpboot_file[pxelinux.0]/File[/tftpboot/pxelinux.0]/ensure: defined content as '{md5}3b078292686534c3b81baf513c8be233'
+2017-10-30 13:02:11 - Notice: /Stage[main]/Ironic::Api::Authtoken/Keystone::Resource::Authtoken[ironic_config]/Ironic_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:02:11 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[swift/username]/ensure: created
+2017-10-30 13:02:12 - Notice: /Stage[main]/Mysql::Server::Installdb/Mysql_datadir[/var/lib/mysql]/ensure: created
+2017-10-30 13:02:14 - Notice: /Stage[main]/Mysql::Server::Service/Service[mysqld]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:02:14 - Notice: /Stage[main]/Mysql::Server::Service/Exec[wait_for_mysql_socket_to_open]: Triggered 'refresh' from 1 events
+2017-10-30 13:02:14 - Notice: /Stage[main]/Mistral::Db::Mysql/Openstacklib::Db::Mysql[mistral]/Mysql_database[mistral]/ensure: created
+2017-10-30 13:02:14 - Notice: /Stage[main]/Mistral::Db::Mysql/Openstacklib::Db::Mysql[mistral]/Openstacklib::Db::Mysql::Host_access[mistral_172.16.0.1]/Mysql_user[mistral@172.16.0.1]/ensure: created
+2017-10-30 13:02:14 - Notice: /Stage[main]/Mistral::Db::Mysql/Openstacklib::Db::Mysql[mistral]/Openstacklib::Db::Mysql::Host_access[mistral_%]/Mysql_user[mistral@%]/ensure: created
+2017-10-30 13:02:14 - Notice: /Stage[main]/Mistral::Db::Mysql/Openstacklib::Db::Mysql[mistral]/Openstacklib::Db::Mysql::Host_access[mistral_172.16.0.1]/Mysql_grant[mistral@172.16.0.1/mistral.*]/ensure: created
+2017-10-30 13:02:14 - Notice: /Stage[main]/Mistral::Db::Mysql/Openstacklib::Db::Mysql[mistral]/Openstacklib::Db::Mysql::Host_access[mistral_%]/Mysql_grant[mistral@%/mistral.*]/ensure: created
+2017-10-30 13:02:30 - Notice: /Stage[main]/Mongodb::Client::Install/Package[mongodb_client]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Nova::Scheduler/Nova::Generic_service[scheduler]/Package[nova-scheduler]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Cron::Purge_deleted/Cron[heat-manage purge_deleted]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Deps/Anchor[heat::install::end]: Triggered 'refresh' from 3 events
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Logging/Oslo::Log[heat_config]/Heat_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat/Heat_config[yaql/memory_quota]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Api/Heat_config[heat_api/bind_host]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/heat_metadata_server_url]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/heat_waitcondition_server_url]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat/Heat_config[trustee/auth_plugin]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat/Oslo::Messaging::Rabbit[heat_config]/Heat_config[oslo_messaging_rabbit/heartbeat_timeout_threshold]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:02:32 - Notice: /Stage[main]/Heat::Policy/Oslo::Policy[heat_config]/Heat_config[oslo_policy/policy_file]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat/Heat_config[yaql/limit_iterators]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Cors/Oslo::Cors[heat_config]/Heat_config[cors/expose_headers]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/num_engine_workers]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/heat_watch_server_url]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/convergence_engine]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/heat_stack_user_role]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Cors/Oslo::Cors[heat_config]/Heat_config[cors/allowed_origin]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Logging/Oslo::Log[heat_config]/Heat_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat/Heat_config[trustee/password]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/project_domain_name]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Cors/Oslo::Cors[heat_config]/Heat_config[cors/max_age]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat/Heat_config[trustee/username]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/max_resources_per_stack]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat/Oslo::Messaging::Rabbit[heat_config]/Heat_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:02:33 - Notice: /Stage[main]/Heat/Heat_config[trustee/project_domain_name]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Oslo::Messaging::Default[heat_config]/Heat_config[DEFAULT/rpc_response_timeout]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Oslo::Messaging::Rabbit[heat_config]/Heat_config[oslo_messaging_rabbit/rabbit_userid]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat::Api/Heat_config[heat_api/workers]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Heat_config[trustee/user_domain_name]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat::Api_cfn/Heat_config[heat_api_cfn/bind_host]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Heat_config[ec2authtoken/auth_uri]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Heat_config[trustee/auth_url]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Main/Heat_config[clients/endpoint_type]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat::Engine/Heat_config[DEFAULT/auth_encryption_key]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Heat_config[clients_keystone/auth_uri]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Oslo::Messaging::Rabbit[heat_config]/Heat_config[oslo_messaging_rabbit/rabbit_password]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat::Api_cfn/Heat_config[heat_api_cfn/workers]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Oslo::Middleware[heat_config]/Heat_config[oslo_middleware/enable_proxy_headers_parsing]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Heat_config[DEFAULT/max_json_body_size]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat::Keystone::Authtoken/Keystone::Resource::Authtoken[heat_config]/Heat_config[keystone_authtoken/user_domain_name]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Heat/Oslo::Messaging::Notifications[heat_config]/Heat_config[oslo_messaging_notifications/driver]/ensure: created
+2017-10-30 13:02:34 - Notice: /Stage[main]/Ironic::Inspector/File[/httpboot/inspector.ipxe]/ensure: created
+2017-10-30 13:02:35 - Notice: /Stage[main]/Mistral::Db/Oslo::Db[mistral_config]/Mistral_config[database/connection]/ensure: created
+2017-10-30 13:02:35 - Notice: /Stage[main]/Neutron::Db/Oslo::Db[neutron_config]/Neutron_config[database/connection]/ensure: created
+2017-10-30 13:02:35 - Notice: /Stage[main]/Heat::Db/Oslo::Db[heat_config]/Heat_config[database/connection]/ensure: created
+2017-10-30 13:02:35 - Notice: /Stage[main]/Ironic::Db/Oslo::Db[ironic_config]/Ironic_config[database/connection]/ensure: created
+2017-10-30 13:02:35 - Notice: /Stage[main]/Ironic::Inspector/Ironic_inspector_config[swift/project_name]/ensure: created
+2017-10-30 13:02:35 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic-inspector::config::end]: Triggered 'refresh' from 29 events
+2017-10-30 13:02:35 - Notice: /Stage[main]/Apache::Mod::Mime_magic/File[mime_magic.conf]/ensure: defined content as '{md5}b258529b332429e2ff8344f726a95457'
+2017-10-30 13:02:35 - Notice: /Stage[main]/Apache::Mod::Mime_magic/Apache::Mod[mime_magic]/File[mime_magic.load]/ensure: defined content as '{md5}cb8670bb2fb352aac7ebf3a85d52094c'
+2017-10-30 13:02:35 - Notice: /Stage[main]/Mongodb::Server::Config/File[/etc/mongod.conf]/content: content changed '{md5}c9466bad2ec40e2613630b7d49d58b2b' to '{md5}9ac487e77459a79bd050c5b5d3422379'
+2017-10-30 13:02:35 - Notice: /Stage[main]/Mongodb::Server::Config/File[/var/lib/mongodb]/group: group changed 'root' to 'mongodb'
+2017-10-30 13:02:35 - Notice: /Stage[main]/Mongodb::Server::Config/File[/var/lib/mongodb]/mode: mode changed '0750' to '0755'
+2017-10-30 13:02:35 - Notice: /Stage[main]/Mongodb::Server::Config/Exec[fix dbpath permissions]: Triggered 'refresh' from 2 events
+2017-10-30 13:02:35 - Notice: /Stage[main]/Mongodb::Server::Config/File[/var/run/mongodb/mongod.pid]/ensure: created
+2017-10-30 13:02:36 - Notice: /Stage[main]/Mongodb::Server::Service/Service[mongodb]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:02:36 - Notice: /Stage[main]/Rabbitmq::Config/File[rabbitmq-env.config]/ensure: defined content as '{md5}4e22b53424850291826e33ab7dd19d95'
+2017-10-30 13:02:40 - Notice: /Stage[main]/Rabbitmq::Service/Service[rabbitmq-server]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:02:40 - Notice: /Stage[main]/Rabbitmq::Install::Rabbitmqadmin/Staging::File[rabbitmqadmin]/Exec[/var/lib/rabbitmq/rabbitmqadmin]/returns: executed successfully
+2017-10-30 13:02:40 - Notice: /Stage[main]/Rabbitmq::Install::Rabbitmqadmin/File[/usr/local/bin/rabbitmqadmin]/ensure: defined content as '{md5}4c348eeb3c263f46531168207f505a2a'
+2017-10-30 13:02:40 - Notice: /Stage[main]/Neutron::Plugins::Ml2/Neutron::Plugins::Ml2::Type_driver[flat]/Neutron_plugin_ml2[ml2_type_flat/flat_networks]/ensure: created
+2017-10-30 13:02:40 - Notice: /Stage[main]/Mistral/Mistral_config[keystone_authtoken/admin_tenant_name]/ensure: created
+2017-10-30 13:02:40 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/ipxe_enabled]/ensure: created
+2017-10-30 13:02:40 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/ipxe_timeout]/ensure: created
+2017-10-30 13:02:41 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/uefi_pxe_bootfile_name]/ensure: created
+2017-10-30 13:02:41 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/pxe_bootfile_name]/ensure: created
+2017-10-30 13:02:41 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/pxe_config_template]/ensure: created
+2017-10-30 13:02:41 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/tftp_root]/ensure: created
+2017-10-30 13:02:41 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/uefi_pxe_config_template]/ensure: created
+2017-10-30 13:02:41 - Notice: /Stage[main]/Ironic::Drivers::Pxe/Ironic_config[pxe/tftp_master_path]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone/Package[keystone]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone::Deps/Anchor[keystone::install::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone::Wsgi::Apache/File[/var/www/cgi-bin/keystone]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone::Wsgi::Apache/File[keystone_wsgi_admin]/ensure: defined content as '{md5}9d752c4dcc117417f7e9bb771f2f9fe1'
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone/File[/etc/keystone/credential-keys]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone::Wsgi::Apache/File[keystone_wsgi_main]/ensure: defined content as '{md5}c81070109f0f0824798a0c3c240f16ef'
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone::Cron::Token_flush/Cron[keystone-manage token_flush]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone/Keystone_config[fernet_tokens/key_repository]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone/Keystone_config[catalog/driver]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone/Keystone_config[ssl/enable]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone/Keystone_config[token/provider]/ensure: created
+2017-10-30 13:02:45 - Notice: /Stage[main]/Keystone/Oslo::Messaging::Rabbit[keystone_config]/Keystone_config[oslo_messaging_rabbit/rabbit_password]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone/Oslo::Middleware[keystone_config]/Keystone_config[oslo_middleware/enable_proxy_headers_parsing]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone/Keystone_config[DEFAULT/public_port]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone/Oslo::Messaging::Rabbit[keystone_config]/Keystone_config[oslo_messaging_rabbit/rabbit_host]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone::Logging/Oslo::Log[keystone_config]/Keystone_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone/Keystone_config[DEFAULT/admin_bind_host]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone/Keystone_config[eventlet_server/public_workers]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone/Keystone_config[catalog/template_file]/ensure: created
+2017-10-30 13:02:46 - Notice: /Stage[main]/Tripleo::Ui/File[/var/www/openstack-tripleo-ui/dist/tripleo_ui_config.js]/ensure: defined content as '{md5}531fbfe027ace547b6ede94b43b9de96'
+2017-10-30 13:02:46 - Notice: /Stage[main]/Keystone/Keystone_config[token/driver]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Oslo::Messaging::Notifications[keystone_config]/Keystone_config[oslo_messaging_notifications/driver]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Oslo::Messaging::Rabbit[keystone_config]/Keystone_config[oslo_messaging_rabbit/rabbit_userid]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Keystone_config[DEFAULT/public_bind_host]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Keystone_config[DEFAULT/admin_token]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone::Logging/Oslo::Log[keystone_config]/Keystone_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Oslo::Messaging::Rabbit[keystone_config]/Keystone_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Keystone_config[credential/key_repository]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Keystone_config[DEFAULT/admin_port]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Oslo::Messaging::Notifications[keystone_config]/Keystone_config[oslo_messaging_notifications/topics]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone::Wsgi::Apache/Apache::Vhost[keystone_wsgi_main]/Concat[10-keystone_wsgi_main.conf]/File[/etc/httpd/conf.d/10-keystone_wsgi_main.conf]/ensure: defined content as '{md5}22092ab21437ac44b19593e04bd166e7'
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Keystone_config[token/expiration]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone/Keystone_config[eventlet_server/admin_workers]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone::Cors/Oslo::Cors[keystone_config]/Keystone_config[cors/allowed_origin]/ensure: created
+2017-10-30 13:02:47 - Notice: /Stage[main]/Keystone::Db/Oslo::Db[keystone_config]/Keystone_config[database/connection]/ensure: created
+2017-10-30 13:02:48 - Notice: /Stage[main]/Apache/Apache::Vhost[default]/Concat[15-default.conf]/File[/etc/httpd/conf.d/15-default.conf]/ensure: defined content as '{md5}a430bf4e003be964b419e7aea251c6c4'
+2017-10-30 13:02:48 - Notice: /Stage[main]/Main/Keystone_config[ec2/driver]/ensure: created
+2017-10-30 13:02:50 - Notice: /Stage[main]/Swift::Storage::Account/Swift::Storage::Generic[account]/Package[swift-account]/ensure: created
+2017-10-30 13:02:52 - Notice: /Stage[main]/Swift::Storage::Container/Swift::Storage::Generic[container]/Package[swift-container]/ensure: created
+2017-10-30 13:02:54 - Notice: /Stage[main]/Swift::Storage::Object/Swift::Storage::Generic[object]/Package[swift-object]/ensure: created
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Proxy/Package[swift-proxy]/ensure: created
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Proxy/Concat[/etc/swift/proxy-server.conf]/File[/etc/swift/proxy-server.conf]/content: content changed '{md5}72e1f422a87b96264a03efe5ae820aae' to '{md5}cbd4db57ce98316a6bac61653326fc06'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Proxy/Concat[/etc/swift/proxy-server.conf]/File[/etc/swift/proxy-server.conf]/owner: owner changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Neutron/Oslo::Messaging::Rabbit[neutron_config]/Neutron_config[oslo_messaging_rabbit/rabbit_userid]/ensure: created
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Deps/Anchor[swift::install::end]: Triggered 'refresh' from 5 events
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Storage::Account/Swift::Storage::Generic[account]/File[/etc/swift/account-server/]/owner: owner changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Storage::Account/Swift::Storage::Generic[account]/File[/etc/swift/account-server/]/group: group changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Storage::Object/Swift::Storage::Generic[object]/File[/etc/swift/object-server/]/owner: owner changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Storage::Object/Swift::Storage::Generic[object]/File[/etc/swift/object-server/]/group: group changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift/Swift_config[swift-constraints/max_header_size]/ensure: created
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Storage::Container/Swift::Storage::Generic[container]/File[/etc/swift/container-server/]/owner: owner changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Storage::Container/Swift::Storage::Generic[container]/File[/etc/swift/container-server/]/group: group changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift/Swift_config[swift-hash/swift_hash_path_suffix]/value: value changed '%SWIFT_HASH_PATH_SUFFIX%' to '48d918ac72082153db8069096626130664b1c196'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Proxy::Authtoken/File[/var/cache/swift]/group: group changed 'root' to 'swift'
+2017-10-30 13:02:56 - Notice: /Stage[main]/Swift::Proxy::Authtoken/File[/var/cache/swift]/mode: mode changed '0755' to '0700'
+2017-10-30 13:02:57 - Notice: /Stage[main]/Swift::Ringbuilder/Swift::Ringbuilder::Create[container]/Exec[create_container]/returns: executed successfully
+2017-10-30 13:02:57 - Notice: /Stage[main]/Swift::Ringbuilder/Swift::Ringbuilder::Create[object]/Exec[create_object]/returns: executed successfully
+2017-10-30 13:02:57 - Warning: Unexpected line: Ring file /etc/swift/object.ring.gz not found, probably it hasn't been written yet
+2017-10-30 13:02:58 - Notice: /Stage[main]/Main/Ring_object_device[172.16.0.1:6000/1]/ensure: created
+2017-10-30 13:02:58 - Warning: Unexpected line: Ring file /etc/swift/container.ring.gz not found, probably it hasn't been written yet
+2017-10-30 13:02:58 - Notice: /Stage[main]/Main/Ring_container_device[172.16.0.1:6001/1]/ensure: created
+2017-10-30 13:02:59 - Notice: /Stage[main]/Swift::Ringbuilder/Swift::Ringbuilder::Rebalance[container]/Exec[rebalance_container]: Triggered 'refresh' from 1 events
+2017-10-30 13:02:59 - Notice: /Stage[main]/Swift::Ringbuilder/Swift::Ringbuilder::Rebalance[object]/Exec[rebalance_object]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:00 - Notice: /Stage[main]/Swift::Ringbuilder/Swift::Ringbuilder::Create[account]/Exec[create_account]/returns: executed successfully
+2017-10-30 13:03:00 - Warning: Unexpected line: Ring file /etc/swift/account.ring.gz not found, probably it hasn't been written yet
+2017-10-30 13:03:00 - Notice: /Stage[main]/Main/Ring_account_device[172.16.0.1:6002/1]/ensure: created
+2017-10-30 13:03:01 - Notice: /Stage[main]/Swift::Ringbuilder/Swift::Ringbuilder::Rebalance[account]/Exec[rebalance_account]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:01 - Notice: /Stage[main]/Swift::Deps/Anchor[swift::config::end]: Triggered 'refresh' from 8 events
+2017-10-30 13:03:01 - Notice: /Stage[main]/Swift::Deps/Anchor[swift::service::begin]: Triggered 'refresh' from 3 events
+2017-10-30 13:03:01 - Notice: /Stage[main]/Glance::Deps/Anchor[glance::install::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:01 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_api_config[glance_store/swift_store_config_file]/ensure: created
+2017-10-30 13:03:01 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_registry_config]/Glance_registry_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:03:01 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_api_config]/Glance_api_config[oslo_messaging_rabbit/rabbit_userid]/ensure: created
+2017-10-30 13:03:01 - Notice: /Stage[main]/Glance::Api/Glance_cache_config[glance_store/os_region_name]/ensure: created
+2017-10-30 13:03:01 - Notice: /Stage[main]/Glance::Api::Logging/Oslo::Log[glance_api_config]/Glance_api_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Registry/Glance_registry_config[DEFAULT/bind_host]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Api::Logging/Oslo::Log[glance_api_config]/Glance_api_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_api_config]/Glance_api_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/image_cache_dir]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/bind_host]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Registry/Glance_registry_config[DEFAULT/workers]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_api_config[glance_store/default_store]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Registry::Authtoken/Keystone::Resource::Authtoken[glance_registry_config]/Glance_registry_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Registry::Logging/Oslo::Log[glance_registry_config]/Glance_registry_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_api_config[glance_store/default_swift_reference]/ensure: created
+2017-10-30 13:03:02 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_swift_config[ref1/user]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Api/Glance_api_config[paste_deploy/flavor]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Api::Authtoken/Keystone::Resource::Authtoken[glance_api_config]/Glance_api_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Registry/Glance_registry_config[DEFAULT/bind_port]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Cache::Logging/Oslo::Log[glance_cache_config]/Glance_cache_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Cache::Logging/Oslo::Log[glance_cache_config]/Glance_cache_config[DEFAULT/log_file]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Registry::Authtoken/Keystone::Resource::Authtoken[glance_registry_config]/Glance_registry_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Policy/Oslo::Policy[glance_api_config]/Glance_api_config[oslo_policy/policy_file]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Api/Glance_api_config[glance_store/os_region_name]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Registry::Authtoken/Keystone::Resource::Authtoken[glance_registry_config]/Glance_registry_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:03:03 - Notice: /Stage[main]/Glance::Policy/Oslo::Policy[glance_registry_config]/Glance_registry_config[oslo_policy/policy_file]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Api::Db/Oslo::Db[glance_api_config]/Glance_api_config[database/connection]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Api::Authtoken/Keystone::Resource::Authtoken[glance_api_config]/Glance_api_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Api::Logging/Oslo::Log[glance_api_config]/Glance_api_config[DEFAULT/log_file]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Registry::Db/Oslo::Db[glance_registry_config]/Glance_registry_config[database/connection]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_api_config[glance_store/swift_store_create_container_on_put]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_api_config[glance_store/swift_store_endpoint_type]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Registry/Glance_registry_config[paste_deploy/flavor]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/workers]/ensure: created
+2017-10-30 13:03:04 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_api_config]/Glance_api_config[oslo_messaging_rabbit/rabbit_password]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Registry::Authtoken/Keystone::Resource::Authtoken[glance_registry_config]/Glance_registry_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Api::Authtoken/Keystone::Resource::Authtoken[glance_api_config]/Glance_api_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/registry_host]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/bind_port]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_swift_config[ref1/auth_version]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Api::Authtoken/Keystone::Resource::Authtoken[glance_api_config]/Glance_api_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_registry_config]/Glance_registry_config[oslo_messaging_rabbit/rabbit_userid]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Api::Authtoken/Keystone::Resource::Authtoken[glance_api_config]/Glance_api_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Registry::Logging/Oslo::Log[glance_registry_config]/Glance_registry_config[DEFAULT/log_file]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_registry_config]/Glance_registry_config[oslo_messaging_rabbit/rabbit_password]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_swift_config[ref1/user_domain_id]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Registry::Authtoken/Keystone::Resource::Authtoken[glance_registry_config]/Glance_registry_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_swift_config[ref1/auth_address]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Api/Oslo::Middleware[glance_api_config]/Glance_api_config[oslo_middleware/enable_proxy_headers_parsing]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Registry::Authtoken/Keystone::Resource::Authtoken[glance_registry_config]/Glance_registry_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Api/Glance_cache_config[DEFAULT/registry_host]/ensure: created
+2017-10-30 13:03:05 - Notice: /Stage[main]/Glance::Registry::Logging/Oslo::Log[glance_registry_config]/Glance_registry_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:03:06 - Notice: /Stage[main]/Glance::Api/Glance_api_config[glance_store/stores]/ensure: created
+2017-10-30 13:03:06 - Notice: /Stage[main]/Glance::Cache::Logging/Oslo::Log[glance_cache_config]/Glance_cache_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:03:06 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_swift_config[ref1/key]/ensure: created
+2017-10-30 13:03:06 - Notice: /Stage[main]/Glance::Api::Authtoken/Keystone::Resource::Authtoken[glance_api_config]/Glance_api_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:03:06 - Notice: /Stage[main]/Glance::Backend::Swift/Glance_swift_config[ref1/project_domain_id]/ensure: created
+2017-10-30 13:03:06 - Notice: /Stage[main]/Swift::Storage::All/Swift::Storage::Server[6001]/Concat[/etc/swift/container-server.conf]/File[/etc/swift/container-server.conf]/content: content changed '{md5}4998257eb89ff63e838b37686ebb1ee7' to '{md5}b7276d6c60562b560c8b46befc6e60e9'
+2017-10-30 13:03:06 - Notice: /Stage[main]/Swift::Storage::All/Swift::Storage::Server[6001]/Concat[/etc/swift/container-server.conf]/File[/etc/swift/container-server.conf]/owner: owner changed 'root' to 'swift'
+2017-10-30 13:03:07 - Notice: /Stage[main]/Rsync::Server/Concat[/etc/rsyncd.conf]/File[/etc/rsyncd.conf]/content: content changed '{md5}c63fccb45c0dcbbbe17d0f4bdba920ec' to '{md5}4a8f47b4e72062a8d203113dbddb7798'
+2017-10-30 13:03:08 - Notice: /Stage[main]/Nova::Api/Nova::Generic_service[api]/Package[nova-api]/ensure: created
+2017-10-30 13:03:09 - Notice: /Stage[main]/Tripleo::Ui/File[/etc/httpd/conf.d/openstack-tripleo-ui.conf]/content: content changed '{md5}0bb5ccf9a90544699ec07adf8028d99a' to '{md5}ec9dfa67b5507ef6f7a8bba6345bc07d'
+2017-10-30 13:03:09 - Notice: /Stage[main]/Zaqar::Management::Mongodb/Zaqar_config[drivers:management_store:mongodb/uri]/ensure: created
+2017-10-30 13:03:09 - Notice: /Stage[main]/Heat::Cors/Oslo::Cors[heat_config]/Heat_config[cors/allow_headers]/ensure: created
+2017-10-30 13:03:09 - Notice: /Stage[main]/Apache::Mod::Dav_fs/File[dav_fs.conf]/ensure: defined content as '{md5}899a57534f3d84efa81887ec93c90c9b'
+2017-10-30 13:03:09 - Notice: /Stage[main]/Tripleo::Ui/Apache::Vhost[tripleo-ui]/Concat[25-tripleo-ui.conf]/File[/etc/httpd/conf.d/25-tripleo-ui.conf]/ensure: defined content as '{md5}5c178f67bc5273d0ce7fea6b420fff34'
+2017-10-30 13:03:09 - Notice: /Stage[main]/Ironic::Pxe/File[/tftpboot/pxelinux.cfg]/ensure: created
+2017-10-30 13:03:09 - Notice: /Stage[main]/Keystone/Keystone_config[token/revoke_by_id]/ensure: created
+2017-10-30 13:03:09 - Notice: /Stage[main]/Mistral/Oslo::Messaging::Rabbit[mistral_config]/Mistral_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:03:09 - Notice: /Stage[main]/Ironic::Pxe/Apache::Vhost[ipxe_vhost]/Concat[10-ipxe_vhost.conf]/File[/etc/httpd/conf.d/10-ipxe_vhost.conf]/ensure: defined content as '{md5}0ffa81700d1dc962149c4ec89737928f'
+2017-10-30 13:03:09 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_registry_config]/Glance_registry_config[oslo_messaging_rabbit/rabbit_host]/ensure: created
+2017-10-30 13:03:09 - Notice: /Stage[main]/Mistral::Api/Mistral_config[api/host]/ensure: created
+2017-10-30 13:03:12 - Notice: /Stage[main]/Mistral::Db::Sync/Exec[mistral-db-sync]/returns: executed successfully
+2017-10-30 13:03:14 - Notice: /Stage[main]/Mistral::Db::Sync/Exec[mistral-db-sync]: Triggered 'refresh' from 3 events
+2017-10-30 13:03:14 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic::config::end]: Triggered 'refresh' from 48 events
+2017-10-30 13:03:14 - Notice: /Stage[main]/Ironic::Db::Mysql/Openstacklib::Db::Mysql[ironic]/Mysql_database[ironic]/ensure: created
+2017-10-30 13:03:14 - Notice: /Stage[main]/Ironic::Db::Mysql/Openstacklib::Db::Mysql[ironic]/Openstacklib::Db::Mysql::Host_access[ironic_172.16.0.1]/Mysql_user[ironic@172.16.0.1]/ensure: created
+2017-10-30 13:03:14 - Notice: /Stage[main]/Ironic::Db::Mysql/Openstacklib::Db::Mysql[ironic]/Openstacklib::Db::Mysql::Host_access[ironic_172.16.0.1]/Mysql_grant[ironic@172.16.0.1/ironic.*]/ensure: created
+2017-10-30 13:03:15 - Notice: /Stage[main]/Ironic::Db::Mysql/Openstacklib::Db::Mysql[ironic]/Openstacklib::Db::Mysql::Host_access[ironic_%]/Mysql_user[ironic@%]/ensure: created
+2017-10-30 13:03:15 - Notice: /Stage[main]/Ironic::Db::Mysql/Openstacklib::Db::Mysql[ironic]/Openstacklib::Db::Mysql::Host_access[ironic_%]/Mysql_grant[ironic@%/ironic.*]/ensure: created
+2017-10-30 13:03:15 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic::db::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:15 - Notice: /Stage[main]/Ironic::Db::Inspector_sync/Exec[ironic-inspector-dbsync]: Triggered 'refresh' from 2 events
+2017-10-30 13:03:15 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic-inspector::dbsync::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:15 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic-inspector::service::begin]: Triggered 'refresh' from 3 events
+2017-10-30 13:03:15 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic::dbsync::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:17 - Notice: /Stage[main]/Ironic::Db::Sync/Exec[ironic-dbsync]/returns: executed successfully
+2017-10-30 13:03:19 - Notice: /Stage[main]/Ironic::Db::Sync/Exec[ironic-dbsync]: Triggered 'refresh' from 3 events
+2017-10-30 13:03:19 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic::dbsync::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:03:19 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic::service::begin]: Triggered 'refresh' from 3 events
+2017-10-30 13:03:19 - Notice: /Stage[main]/Ironic::Conductor/Service[ironic-conductor]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:03:19 - Notice: /Stage[main]/Apache/Concat[/etc/httpd/conf/ports.conf]/File[/etc/httpd/conf/ports.conf]/ensure: defined content as '{md5}3b05b21a3ee9a8b37ed55fbc0c973b4e'
+2017-10-30 13:03:19 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf/httpd.conf]/content: content changed '{md5}f5e7449c0f17bc856e86011cb5d152ba' to '{md5}0893c9e26a17a518fb9446eb69da5ff5'
+2017-10-30 13:03:19 - Notice: /Stage[main]/Neutron::Server/Neutron_config[DEFAULT/l3_ha]/ensure: created
+2017-10-30 13:03:19 - Notice: /Stage[main]/Glance::Notify::Rabbitmq/Oslo::Messaging::Rabbit[glance_api_config]/Glance_api_config[oslo_messaging_rabbit/rabbit_host]/ensure: created
+2017-10-30 13:03:20 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[129 gnocchi-api]/Firewall[129 gnocchi-api]/ensure: created
+2017-10-30 13:03:20 - Notice: /Stage[main]/Zaqar/Zaqar_config[DEFAULT/auth_strategy]/ensure: created
+2017-10-30 13:03:20 - Notice: /Stage[main]/Zaqar::Server/Service[openstack-zaqar]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:03:21 - Notice: /Stage[main]/Main/Zaqar::Server_instance[1]/Service[openstack-zaqar@1]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:03:21 - Notice: /Stage[main]/Tripleo::Firewall/Tripleo::Firewall::Rule[139 apache vhost]/Firewall[139 apache vhost]/ensure: created
+2017-10-30 13:03:21 - Notice: /Stage[main]/Nova::Wsgi::Apache/Openstacklib::Wsgi::Apache[nova_api_wsgi]/Apache::Vhost[nova_api_wsgi]/Concat[10-nova_api_wsgi.conf]/File[/etc/httpd/conf.d/10-nova_api_wsgi.conf]/ensure: defined content as '{md5}7e8cfd9aae71e1a550c587522d9eeef8'
+2017-10-30 13:03:21 - Notice: /Stage[main]/Keystone::Wsgi::Apache/Apache::Vhost[keystone_wsgi_admin]/Concat[10-keystone_wsgi_admin.conf]/File[/etc/httpd/conf.d/10-keystone_wsgi_admin.conf]/ensure: defined content as '{md5}56ce6286789c0beffb5bf08f8bfbf6d9'
+2017-10-30 13:03:21 - Notice: /Stage[main]/Keystone::Deps/Anchor[keystone::config::end]: Triggered 'refresh' from 34 events
+2017-10-30 13:03:23 - Notice: /Stage[main]/Keystone/Exec[keystone-manage credential_setup]: Triggered 'refresh' from 2 events
+2017-10-30 13:03:23 - Notice: /Stage[main]/Keystone::Db::Mysql/Openstacklib::Db::Mysql[keystone]/Mysql_database[keystone]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Keystone::Db::Mysql/Openstacklib::Db::Mysql[keystone]/Openstacklib::Db::Mysql::Host_access[keystone_%]/Mysql_user[keystone@%]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Keystone::Db::Mysql/Openstacklib::Db::Mysql[keystone]/Openstacklib::Db::Mysql::Host_access[keystone_%]/Mysql_grant[keystone@%/keystone.*]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Keystone::Db::Mysql/Openstacklib::Db::Mysql[keystone]/Openstacklib::Db::Mysql::Host_access[keystone_172.16.0.1]/Mysql_user[keystone@172.16.0.1]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Keystone::Db::Mysql/Openstacklib::Db::Mysql[keystone]/Openstacklib::Db::Mysql::Host_access[keystone_172.16.0.1]/Mysql_grant[keystone@172.16.0.1/keystone.*]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Keystone::Deps/Anchor[keystone::db::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Deps/Anchor[glance::config::end]: Triggered 'refresh' from 59 events
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Db::Mysql/Openstacklib::Db::Mysql[glance]/Mysql_database[glance]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Db::Mysql/Openstacklib::Db::Mysql[glance]/Openstacklib::Db::Mysql::Host_access[glance_%]/Mysql_user[glance@%]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Db::Mysql/Openstacklib::Db::Mysql[glance]/Openstacklib::Db::Mysql::Host_access[glance_%]/Mysql_grant[glance@%/glance.*]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Db::Mysql/Openstacklib::Db::Mysql[glance]/Openstacklib::Db::Mysql::Host_access[glance_172.16.0.1]/Mysql_user[glance@172.16.0.1]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Db::Mysql/Openstacklib::Db::Mysql[glance]/Openstacklib::Db::Mysql::Host_access[glance_172.16.0.1]/Mysql_grant[glance@172.16.0.1/glance.*]/ensure: created
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Deps/Anchor[glance::db::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:23 - Notice: /Stage[main]/Glance::Deps/Anchor[glance::dbsync::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:28 - Notice: /Stage[main]/Glance::Db::Sync/Exec[glance-manage db_sync]/returns: executed successfully
+2017-10-30 13:03:29 - Notice: /Stage[main]/Glance::Db::Sync/Exec[glance-manage db_sync]: Triggered 'refresh' from 3 events
+2017-10-30 13:03:29 - Notice: /Stage[main]/Glance::Deps/Anchor[glance::dbsync::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:03:29 - Notice: /Stage[main]/Apache::Mod::Cgi/Apache::Mod[cgi]/File[cgi.load]/ensure: defined content as '{md5}ac20c5c5779b37ab06b480d6485a0881'
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/00-proxy.conf]/ensure: removed
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/01-cgi.conf]/ensure: removed
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/00-mpm.conf]/ensure: removed
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/00-systemd.conf]/ensure: removed
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/10-wsgi.conf]/ensure: removed
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/00-base.conf]/ensure: removed
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/00-lua.conf]/ensure: removed
+2017-10-30 13:03:30 - Notice: /Stage[main]/Apache/File[/etc/httpd/conf.modules.d/00-dav.conf]/ensure: removed
+2017-10-30 13:03:32 - Notice: /Stage[main]/Nova::Cert/Nova::Generic_service[cert]/Package[nova-cert]/ensure: created
+2017-10-30 13:03:32 - Notice: /Stage[main]/Cinder::Deps/Anchor[cinder::service::end]: Triggered 'refresh' from 32 events
+2017-10-30 13:03:32 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::install::end]: Triggered 'refresh' from 7 events
+2017-10-30 13:03:32 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/project_name]/ensure: created
+2017-10-30 13:03:32 - Notice: /Stage[main]/Nova::Compute/Nova_config[DEFAULT/force_raw_images]/ensure: created
+2017-10-30 13:03:32 - Notice: /Stage[main]/Nova::Logging/Oslo::Log[nova_config]/Nova_config[DEFAULT/debug]/ensure: created
+2017-10-30 13:03:32 - Notice: /Stage[main]/Nova::Api/Nova_config[neutron/service_metadata_proxy]/ensure: created
+2017-10-30 13:03:32 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[DEFAULT/use_neutron]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova::Logging/Oslo::Log[nova_config]/Nova_config[DEFAULT/log_dir]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/extension_sync_interval]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/password]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/scheduler_use_baremetal_filters]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova::Keystone::Authtoken/Keystone::Resource::Authtoken[nova_config]/Nova_config[keystone_authtoken/username]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/notify_api_faults]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova::Db/Nova_config[api_database/connection]/ensure: created
+2017-10-30 13:03:33 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/osapi_compute_listen]/ensure: created
+2017-10-30 13:03:34 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/scheduler_default_filters]/ensure: created
+2017-10-30 13:03:34 - Notice: /Stage[main]/Nova::Keystone::Authtoken/Keystone::Resource::Authtoken[nova_config]/Nova_config[keystone_authtoken/project_name]/ensure: created
+2017-10-30 13:03:34 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/max_io_ops_per_host]/ensure: created
+2017-10-30 13:03:34 - Notice: /Stage[main]/Nova::Compute/Nova_config[DEFAULT/compute_manager]/ensure: created
+2017-10-30 13:03:35 - Notice: /Stage[main]/Main/Nova_config[DEFAULT/sync_power_state_interval]/ensure: created
+2017-10-30 13:03:35 - Notice: /Stage[main]/Nova::Conductor/Nova_config[conductor/workers]/ensure: created
+2017-10-30 13:03:35 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/state_path]/ensure: created
+2017-10-30 13:03:35 - Notice: /Stage[main]/Nova/Oslo::Messaging::Notifications[nova_config]/Nova_config[oslo_messaging_notifications/driver]/ensure: created
+2017-10-30 13:03:35 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/report_interval]/ensure: created
+2017-10-30 13:03:35 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/scheduler_weight_classes]/ensure: created
+2017-10-30 13:03:35 - Notice: /Stage[main]/Nova::Ironic::Common/Nova_config[ironic/admin_tenant_name]/ensure: created
+2017-10-30 13:03:36 - Notice: /Stage[main]/Nova::Keystone::Authtoken/Keystone::Resource::Authtoken[nova_config]/Nova_config[keystone_authtoken/auth_type]/ensure: created
+2017-10-30 13:03:36 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/enabled_apis]/ensure: created
+2017-10-30 13:03:36 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/auth_url]/ensure: created
+2017-10-30 13:03:36 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/user_domain_name]/ensure: created
+2017-10-30 13:03:36 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/osapi_compute_listen_port]/ensure: created
+2017-10-30 13:03:36 - Notice: /Stage[main]/Nova::Ironic::Common/Nova_config[ironic/admin_username]/ensure: created
+2017-10-30 13:03:36 - Notice: /Stage[main]/Nova::Ironic::Common/Nova_config[ironic/api_endpoint]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova/Oslo::Messaging::Default[nova_config]/Nova_config[DEFAULT/transport_url]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova/Nova_config[glance/api_servers]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/image_service]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova/Oslo::Messaging::Default[nova_config]/Nova_config[DEFAULT/rpc_response_timeout]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova::Compute/Nova_config[DEFAULT/heal_instance_info_cache_interval]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/notify_on_state_change]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[DEFAULT/firewall_driver]/ensure: created
+2017-10-30 13:03:37 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/scheduler_host_subset_size]/ensure: created
+2017-10-30 13:03:38 - Notice: /Stage[main]/Nova/Nova_config[cinder/catalog_info]/ensure: created
+2017-10-30 13:03:38 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/ram_allocation_ratio]/ensure: created
+2017-10-30 13:03:38 - Notice: /Stage[main]/Nova::Db/Oslo::Db[nova_config]/Nova_config[database/connection]/ensure: created
+2017-10-30 13:03:38 - Notice: /Stage[main]/Nova::Keystone::Authtoken/Keystone::Resource::Authtoken[nova_config]/Nova_config[keystone_authtoken/auth_url]/ensure: created
+2017-10-30 13:03:38 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/default_floating_pool]/ensure: created
+2017-10-30 13:03:39 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/timeout]/ensure: created
+2017-10-30 13:03:39 - Notice: /Stage[main]/Nova::Compute/Nova_config[DEFAULT/reserved_host_memory_mb]/ensure: created
+2017-10-30 13:03:39 - Notice: /Stage[main]/Nova::Scheduler/Nova_config[DEFAULT/scheduler_driver]/ensure: created
+2017-10-30 13:03:39 - Notice: /Stage[main]/Nova::Policy/Oslo::Policy[nova_config]/Nova_config[oslo_policy/policy_file]/ensure: created
+2017-10-30 13:03:40 - Notice: /Stage[main]/Nova::Ironic::Common/Nova_config[ironic/admin_password]/ensure: created
+2017-10-30 13:03:40 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/project_domain_name]/ensure: created
+2017-10-30 13:03:40 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/scheduler_max_attempts]/ensure: created
+2017-10-30 13:03:40 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[DEFAULT/vif_plugging_is_fatal]/ensure: created
+2017-10-30 13:03:40 - Notice: /Stage[main]/Nova::Api/Nova_config[wsgi/api_paste_config]/ensure: created
+2017-10-30 13:03:40 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/metadata_listen_port]/ensure: created
+2017-10-30 13:03:41 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/max_instances_per_host]/ensure: created
+2017-10-30 13:03:41 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/scheduler_available_filters]/ensure: created
+2017-10-30 13:03:41 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/url]/ensure: created
+2017-10-30 13:03:42 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/service_down_time]/ensure: created
+2017-10-30 13:03:42 - Notice: /Stage[main]/Nova::Api/Oslo::Middleware[nova_config]/Nova_config[oslo_middleware/enable_proxy_headers_parsing]/ensure: created
+2017-10-30 13:03:42 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/ovs_bridge]/ensure: created
+2017-10-30 13:03:42 - Notice: /Stage[main]/Nova::Scheduler::Filter/Nova_config[DEFAULT/scheduler_host_manager]/ensure: created
+2017-10-30 13:03:42 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/use_forwarded_for]/ensure: created
+2017-10-30 13:03:43 - Notice: /Stage[main]/Keystone::Deps/Anchor[keystone::dbsync::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:46 - Notice: /Stage[main]/Keystone::Db::Sync/Exec[keystone-manage db_sync]/returns: executed successfully
+2017-10-30 13:03:47 - Notice: /Stage[main]/Keystone::Db::Sync/Exec[keystone-manage db_sync]: Triggered 'refresh' from 3 events
+2017-10-30 13:03:47 - Notice: /Stage[main]/Keystone::Deps/Anchor[keystone::dbsync::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:03:49 - Notice: /Stage[main]/Keystone/Exec[keystone-manage bootstrap]: Triggered 'refresh' from 1 events
+2017-10-30 13:03:49 - Notice: /Stage[main]/Keystone::Deps/Anchor[keystone::service::begin]: Triggered 'refresh' from 5 events
+2017-10-30 13:03:49 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/osapi_volume_listen]/ensure: created
+2017-10-30 13:03:49 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/metadata_listen]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/auth_strategy]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/region_name]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova::Ironic::Common/Nova_config[ironic/admin_url]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova::Compute/Nova_config[vnc/enabled]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova::Keystone::Authtoken/Keystone::Resource::Authtoken[nova_config]/Nova_config[keystone_authtoken/password]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova::Compute::Ironic/Nova_config[DEFAULT/compute_driver]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/osapi_compute_workers]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova/Nova_config[DEFAULT/rootwrap_config]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova/Oslo::Messaging::Rabbit[nova_config]/Nova_config[DEFAULT/rpc_backend]/ensure: created
+2017-10-30 13:03:50 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[DEFAULT/vif_plugging_timeout]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/metadata_workers]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[DEFAULT/dhcp_domain]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova::Compute/Nova_config[DEFAULT/force_config_drive]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/allow_resize_to_same_host]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova/Oslo::Concurrency[nova_config]/Nova_config[oslo_concurrency/lock_path]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/auth_type]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova::Keystone::Authtoken/Keystone::Resource::Authtoken[nova_config]/Nova_config[keystone_authtoken/auth_uri]/ensure: created
+2017-10-30 13:03:51 - Notice: /Stage[main]/Nova::Network::Neutron/Nova_config[neutron/username]/ensure: created
+2017-10-30 13:03:52 - Notice: /Stage[main]/Nova::Api/Nova_config[DEFAULT/fping_path]/ensure: created
+2017-10-30 13:03:52 - Notice: /Stage[main]/Main/Exec[stop_nova-api]: Triggered 'refresh' from 83 events
+2017-10-30 13:03:52 - Notice: /Stage[main]/Apache::Service/Service[httpd]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:03:52 - Notice: /Stage[main]/Keystone::Deps/Anchor[keystone::service::end]: Triggered 'refresh' from 32 events
+2017-10-30 13:03:57 - Notice: /Stage[main]/Neutron::Keystone::Auth/Keystone::Resource::Service_identity[neutron]/Keystone_user[neutron]/ensure: created
+2017-10-30 13:03:59 - Notice: /Stage[main]/Heat::Keystone::Auth/Keystone::Resource::Service_identity[heat]/Keystone_user[heat]/ensure: created
+2017-10-30 13:04:01 - Notice: /Stage[main]/Glance::Keystone::Auth/Keystone::Resource::Service_identity[glance]/Keystone_service[glance::image]/ensure: created
+2017-10-30 13:04:02 - Notice: /Stage[main]/Ironic::Keystone::Auth/Keystone::Resource::Service_identity[ironic]/Keystone_service[ironic::baremetal]/ensure: created
+2017-10-30 13:04:03 - Notice: /Stage[main]/Zaqar::Keystone::Auth/Keystone::Resource::Service_identity[zaqar]/Keystone_service[zaqar::messaging]/ensure: created
+2017-10-30 13:04:05 - Notice: /Stage[main]/Nova::Keystone::Auth/Keystone::Resource::Service_identity[nova]/Keystone_user[nova]/ensure: created
+2017-10-30 13:04:08 - Notice: /Stage[main]/Mistral::Keystone::Auth/Keystone::Resource::Service_identity[mistral]/Keystone_user[mistral]/ensure: created
+2017-10-30 13:04:10 - Notice: /Stage[main]/Glance::Keystone::Auth/Keystone::Resource::Service_identity[glance]/Keystone_user[glance]/ensure: created
+2017-10-30 13:04:12 - Notice: /Stage[main]/Zaqar::Keystone::Auth_websocket/Keystone::Resource::Service_identity[zaqar-websocket]/Keystone_user[zaqar-websocket]/ensure: created
+2017-10-30 13:04:14 - Notice: /Stage[main]/Heat::Keystone::Auth/Keystone_role[heat_stack_user]/ensure: created
+2017-10-30 13:04:15 - Notice: /Stage[main]/Mistral::Keystone::Auth/Keystone::Resource::Service_identity[mistral]/Keystone_service[mistral::workflowv2]/ensure: created
+2017-10-30 13:04:17 - Notice: /Stage[main]/Ironic::Keystone::Auth/Keystone::Resource::Service_identity[ironic]/Keystone_user[ironic]/ensure: created
+2017-10-30 13:04:18 - Notice: /Stage[main]/Nova::Keystone::Auth/Keystone::Resource::Service_identity[nova]/Keystone_service[nova::compute]/ensure: created
+2017-10-30 13:04:19 - Notice: /Stage[main]/Swift::Keystone::Auth/Keystone_role[swiftoperator]/ensure: created
+2017-10-30 13:04:20 - Notice: /Stage[main]/Neutron::Keystone::Auth/Keystone::Resource::Service_identity[neutron]/Keystone_service[neutron::network]/ensure: created
+2017-10-30 13:04:22 - Notice: /Stage[main]/Ironic::Keystone::Auth_inspector/Keystone::Resource::Service_identity[ironic-inspector]/Keystone_user[ironic-inspector]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Zaqar::Keystone::Auth/Keystone::Resource::Service_identity[zaqar]/Keystone_user[zaqar]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/project_domain_name]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[DEFAULT/notify_nova_on_port_status_changes]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/auth_type]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/user_domain_name]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/project_name]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/username]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/password]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/project_domain_id]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[DEFAULT/notify_nova_on_port_data_changes]/ensure: created
+2017-10-30 13:04:24 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/tenant_name]/ensure: created
+2017-10-30 13:04:25 - Notice: /Stage[main]/Swift::Keystone::Auth/Keystone::Resource::Service_identity[swift]/Keystone_service[swift::object-store]/ensure: created
+2017-10-30 13:04:25 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::config::end]: Triggered 'refresh' from 83 events
+2017-10-30 13:04:26 - Notice: /Stage[main]/Keystone::Endpoint/Keystone::Resource::Service_identity[keystone]/Keystone_service[keystone::identity]/ensure: created
+2017-10-30 13:04:26 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/user_domain_id]/ensure: created
+2017-10-30 13:04:27 - Notice: /Stage[main]/Ironic::Keystone::Auth_inspector/Keystone::Resource::Service_identity[ironic-inspector]/Keystone_service[ironic-inspector::baremetal-introspection]/ensure: created
+2017-10-30 13:04:28 - Notice: /Stage[main]/Heat::Keystone::Auth/Keystone::Resource::Service_identity[heat]/Keystone_service[heat::orchestration]/ensure: created
+2017-10-30 13:04:28 - Notice: /Stage[main]/Neutron::Server::Notifications/Neutron_config[nova/auth_url]/ensure: created
+2017-10-30 13:04:29 - Notice: /Stage[main]/Zaqar::Keystone::Auth_websocket/Keystone::Resource::Service_identity[zaqar-websocket]/Keystone_service[zaqar-websocket::messaging-websocket]/ensure: created
+2017-10-30 13:04:34 - Notice: /Stage[main]/Keystone::Endpoint/Keystone::Resource::Service_identity[keystone]/Keystone_endpoint[regionOne/keystone::identity]/ensure: created
+2017-10-30 13:04:38 - Notice: /Stage[main]/Zaqar::Keystone::Auth/Keystone::Resource::Service_identity[zaqar]/Keystone_endpoint[regionOne/zaqar::messaging]/ensure: created
+2017-10-30 13:04:42 - Notice: /Stage[main]/Nova::Keystone::Auth/Keystone::Resource::Service_identity[nova]/Keystone_endpoint[regionOne/nova::compute]/ensure: created
+2017-10-30 13:04:46 - Notice: /Stage[main]/Heat::Keystone::Auth/Keystone::Resource::Service_identity[heat]/Keystone_endpoint[regionOne/heat::orchestration]/ensure: created
+2017-10-30 13:04:50 - Notice: /Stage[main]/Ironic::Keystone::Auth_inspector/Keystone::Resource::Service_identity[ironic-inspector]/Keystone_endpoint[regionOne/ironic-inspector::baremetal-introspection]/ensure: created
+2017-10-30 13:04:54 - Notice: /Stage[main]/Glance::Keystone::Auth/Keystone::Resource::Service_identity[glance]/Keystone_endpoint[regionOne/glance::image]/ensure: created
+2017-10-30 13:04:58 - Notice: /Stage[main]/Swift::Keystone::Auth/Keystone::Resource::Service_identity[swift]/Keystone_endpoint[regionOne/swift::object-store]/ensure: created
+2017-10-30 13:04:58 - Notice: /Stage[main]/Swift::Storage::Container/Swift::Storage::Generic[container]/Swift::Service[swift-container-replicator]/Service[swift-container-replicator]: Triggered 'refresh' from 6 events
+2017-10-30 13:04:58 - Notice: /Stage[main]/Swift::Storage::Account/Swift::Service[swift-account-reaper]/Service[swift-account-reaper]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:04:58 - Notice: /Stage[main]/Swift::Storage::Account/Swift::Storage::Generic[account]/Swift::Service[swift-account-replicator]/Service[swift-account-replicator]: Triggered 'refresh' from 6 events
+2017-10-30 13:04:58 - Notice: /Stage[main]/Swift::Storage::Container/Swift::Storage::Generic[container]/Swift::Service[swift-container-auditor]/Service[swift-container-auditor]: Triggered 'refresh' from 6 events
+2017-10-30 13:04:59 - Notice: /Stage[main]/Swift::Storage::Container/Swift::Storage::Generic[container]/Swift::Service[swift-container-server]/Service[swift-container-server]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:04:59 - Notice: /Stage[main]/Swift::Storage::Account/Swift::Storage::Generic[account]/Swift::Service[swift-account-server]/Service[swift-account-server]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:03 - Notice: /Stage[main]/Ironic::Keystone::Auth/Keystone::Resource::Service_identity[ironic]/Keystone_endpoint[regionOne/ironic::baremetal]/ensure: created
+2017-10-30 13:05:03 - Notice: /Stage[main]/Swift::Storage::Object/Swift::Storage::Generic[object]/Swift::Service[swift-object-server]/Service[swift-object-server]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:03 - Notice: /Stage[main]/Swift::Storage::Object/Swift::Storage::Generic[object]/Swift::Service[swift-object-replicator]/Service[swift-object-replicator]: Triggered 'refresh' from 6 events
+2017-10-30 13:05:07 - Notice: /Stage[main]/Zaqar::Keystone::Auth_websocket/Keystone::Resource::Service_identity[zaqar-websocket]/Keystone_endpoint[regionOne/zaqar-websocket::messaging-websocket]/ensure: created
+2017-10-30 13:05:07 - Notice: /Stage[main]/Swift::Storage::Object/Swift::Storage::Generic[object]/Swift::Service[swift-object-auditor]/Service[swift-object-auditor]: Triggered 'refresh' from 6 events
+2017-10-30 13:05:11 - Notice: /Stage[main]/Neutron::Keystone::Auth/Keystone::Resource::Service_identity[neutron]/Keystone_endpoint[regionOne/neutron::network]/ensure: created
+2017-10-30 13:05:11 - Notice: /Stage[main]/Swift::Storage::Account/Swift::Storage::Generic[account]/Swift::Service[swift-account-auditor]/Service[swift-account-auditor]: Triggered 'refresh' from 6 events
+2017-10-30 13:05:15 - Notice: /Stage[main]/Mistral::Keystone::Auth/Keystone::Resource::Service_identity[mistral]/Keystone_endpoint[regionOne/mistral::workflowv2]/ensure: created
+2017-10-30 13:05:16 - Notice: /Stage[main]/Ironic::Api/Service[ironic-api]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:16 - Notice: /Stage[main]/Ironic::Inspector/Service[ironic-inspector]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:16 - Notice: /Stage[main]/Ironic::Inspector/Service[ironic-inspector-dnsmasq]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:16 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic::service::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:05:17 - Notice: /Stage[main]/Swift::Proxy/Swift::Service[swift-proxy-server]/Service[swift-proxy-server]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:17 - Notice: /Stage[main]/Ironic::Deps/Anchor[ironic-inspector::service::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:05:19 - Notice: /Stage[main]/Swift::Keystone::Auth/Keystone::Resource::Service_identity[swift]/Keystone_user[swift]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql/Openstacklib::Db::Mysql[nova]/Mysql_database[nova]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql/Openstacklib::Db::Mysql[nova]/Openstacklib::Db::Mysql::Host_access[nova_%]/Mysql_user[nova@%]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql/Openstacklib::Db::Mysql[nova]/Openstacklib::Db::Mysql::Host_access[nova_%]/Mysql_grant[nova@%/nova.*]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql/Openstacklib::Db::Mysql[nova]/Openstacklib::Db::Mysql::Host_access[nova_172.16.0.1]/Mysql_user[nova@172.16.0.1]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql/Openstacklib::Db::Mysql[nova]/Openstacklib::Db::Mysql::Host_access[nova_172.16.0.1]/Mysql_grant[nova@172.16.0.1/nova.*]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql_api/Openstacklib::Db::Mysql[nova_api]/Mysql_database[nova_api]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql_api/Openstacklib::Db::Mysql[nova_api]/Openstacklib::Db::Mysql::Host_access[nova_api_%]/Mysql_user[nova_api@%]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql_api/Openstacklib::Db::Mysql[nova_api]/Openstacklib::Db::Mysql::Host_access[nova_api_172.16.0.1]/Mysql_user[nova_api@172.16.0.1]/ensure: created
+2017-10-30 13:05:19 - Notice: /Stage[main]/Nova::Db::Mysql_api/Openstacklib::Db::Mysql[nova_api]/Openstacklib::Db::Mysql::Host_access[nova_api_172.16.0.1]/Mysql_grant[nova_api@172.16.0.1/nova_api.*]/ensure: created
+2017-10-30 13:05:20 - Notice: /Stage[main]/Nova::Db::Mysql_api/Openstacklib::Db::Mysql[nova_api]/Openstacklib::Db::Mysql::Host_access[nova_api_%]/Mysql_grant[nova_api@%/nova_api.*]/ensure: created
+2017-10-30 13:05:20 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::db::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:05:20 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::dbsync::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:05:32 - Notice: /Stage[main]/Nova::Db::Sync/Exec[nova-db-sync]/returns: executed successfully
+2017-10-30 13:05:36 - Notice: /Stage[main]/Nova::Db::Sync/Exec[nova-db-sync]: Triggered 'refresh' from 3 events
+2017-10-30 13:05:36 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::dbsync::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:05:36 - Notice: /Stage[main]/Nova::Cron::Archive_deleted_rows/Cron[nova-manage db archive_deleted_rows]/ensure: created
+2017-10-30 13:05:36 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::dbsync_api::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:05:41 - Notice: /Stage[main]/Nova::Db::Sync_api/Exec[nova-db-sync-api]/returns: executed successfully
+2017-10-30 13:05:44 - Notice: /Stage[main]/Nova::Db::Sync_api/Exec[nova-db-sync-api]: Triggered 'refresh' from 3 events
+2017-10-30 13:05:44 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::dbsync_api::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:05:44 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::db_online_data_migrations::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:05:44 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::service::begin]: Triggered 'refresh' from 3 events
+2017-10-30 13:05:48 - Notice: /Stage[main]/Nova::Cert/Nova::Generic_service[cert]/Service[nova-cert]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:52 - Notice: /Stage[main]/Nova::Api/Nova::Generic_service[api]/Service[nova-api]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:05:56 - Notice: /Stage[main]/Nova::Scheduler/Nova::Generic_service[scheduler]/Service[nova-scheduler]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:06:00 - Notice: /Stage[main]/Nova::Conductor/Nova::Generic_service[conductor]/Service[nova-conductor]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:06:04 - Notice: /Stage[main]/Nova::Compute/Nova::Generic_service[compute]/Service[nova-compute]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:06:04 - Notice: /Stage[main]/Nova::Deps/Anchor[nova::service::end]: Triggered 'refresh' from 5 events
+2017-10-30 13:06:07 - Notice: /Stage[main]/Keystone::Roles::Admin/Keystone_tenant[service]/ensure: created
+2017-10-30 13:06:07 - Notice: /Stage[main]/Keystone::Roles::Admin/Keystone_tenant[admin]/description: description changed 'Bootstrap project for initializing the cloud.' to 'admin tenant'
+2017-10-30 13:06:12 - Notice: /Stage[main]/Zaqar::Keystone::Auth/Keystone::Resource::Service_identity[zaqar]/Keystone_user_role[zaqar@service]/ensure: created
+2017-10-30 13:06:15 - Notice: /Stage[main]/Mistral::Keystone::Auth/Keystone::Resource::Service_identity[mistral]/Keystone_user_role[mistral@service]/ensure: created
+2017-10-30 13:06:18 - Notice: /Stage[main]/Zaqar::Keystone::Auth_websocket/Keystone::Resource::Service_identity[zaqar-websocket]/Keystone_user_role[zaqar-websocket@service]/ensure: created
+2017-10-30 13:06:22 - Notice: /Stage[main]/Nova::Keystone::Auth/Keystone::Resource::Service_identity[nova]/Keystone_user_role[nova@service]/ensure: created
+2017-10-30 13:06:25 - Notice: /Stage[main]/Ironic::Keystone::Auth_inspector/Keystone::Resource::Service_identity[ironic-inspector]/Keystone_user_role[ironic-inspector@service]/ensure: created
+2017-10-30 13:06:28 - Notice: /Stage[main]/Heat::Keystone::Auth/Keystone::Resource::Service_identity[heat]/Keystone_user_role[heat@service]/ensure: created
+2017-10-30 13:06:31 - Notice: /Stage[main]/Swift::Keystone::Auth/Keystone::Resource::Service_identity[swift]/Keystone_user_role[swift@service]/ensure: created
+2017-10-30 13:06:40 - Notice: /Stage[main]/Mistral::Db::Sync/Exec[mistral-db-populate]/returns: executed successfully
+2017-10-30 13:06:49 - Notice: /Stage[main]/Mistral::Db::Sync/Exec[mistral-db-populate]: Triggered 'refresh' from 4 events
+2017-10-30 13:06:49 - Notice: /Stage[main]/Mistral::Engine/Service[mistral-engine]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:06:49 - Notice: /Stage[main]/Mistral::Api/Service[mistral-api]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:06:52 - Notice: /Stage[main]/Ironic::Keystone::Auth/Keystone::Resource::Service_identity[ironic]/Keystone_user_role[ironic@service]/ensure: created
+2017-10-30 13:06:56 - Notice: /Stage[main]/Keystone::Roles::Admin/Keystone_user[admin]/email: defined 'email' as 'root@localhost'
+2017-10-30 13:07:00 - Notice: /Stage[main]/Heat::Keystone::Domain/Heat_config[DEFAULT/stack_user_domain_name]/ensure: created
+2017-10-30 13:07:00 - Notice: /Stage[main]/Heat::Keystone::Domain/Heat_config[DEFAULT/stack_domain_admin_password]/ensure: created
+2017-10-30 13:07:00 - Notice: /Stage[main]/Heat::Keystone::Domain/Heat_config[DEFAULT/stack_domain_admin]/ensure: created
+2017-10-30 13:07:02 - Notice: /Stage[main]/Heat::Keystone::Domain/Keystone_domain[heat_stack]/ensure: created
+2017-10-30 13:07:05 - Notice: /Stage[main]/Heat::Keystone::Domain/Keystone_user[heat_admin::heat_stack]/ensure: created
+2017-10-30 13:07:08 - Notice: /Stage[main]/Heat::Keystone::Domain/Keystone_user_role[heat_admin::heat_stack@::heat_stack]/ensure: created
+2017-10-30 13:07:12 - Notice: /Stage[main]/Glance::Keystone::Auth/Keystone::Resource::Service_identity[glance]/Keystone_user_role[glance@service]/ensure: created
+2017-10-30 13:07:12 - Notice: /Stage[main]/Glance::Deps/Anchor[glance::service::begin]: Triggered 'refresh' from 5 events
+2017-10-30 13:07:12 - Notice: /Stage[main]/Glance::Registry/Service[glance-registry]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:12 - Notice: /Stage[main]/Mistral::Executor/Service[mistral-executor]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:13 - Notice: /Stage[main]/Swift::Storage::Object/Swift::Service[swift-object-updater]/Service[swift-object-updater]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:13 - Notice: /Stage[main]/Swift::Storage::Container/Swift::Service[swift-container-updater]/Service[swift-container-updater]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:13 - Notice: /Stage[main]/Swift::Deps/Anchor[swift::service::end]: Triggered 'refresh' from 13 events
+2017-10-30 13:07:13 - Notice: /Stage[main]/Glance::Api/Service[glance-api]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:13 - Notice: /Stage[main]/Glance::Deps/Anchor[glance::service::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Keystone::Auth/Keystone::Resource::Service_identity[neutron]/Keystone_user_role[neutron@service]/ensure: created
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Deps/Anchor[neutron::config::end]: Triggered 'refresh' from 69 events
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Db::Mysql/Openstacklib::Db::Mysql[neutron]/Mysql_database[neutron]/ensure: created
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Db::Mysql/Openstacklib::Db::Mysql[neutron]/Openstacklib::Db::Mysql::Host_access[neutron_172.16.0.1]/Mysql_user[neutron@172.16.0.1]/ensure: created
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Db::Mysql/Openstacklib::Db::Mysql[neutron]/Openstacklib::Db::Mysql::Host_access[neutron_172.16.0.1]/Mysql_grant[neutron@172.16.0.1/neutron.*]/ensure: created
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Db::Mysql/Openstacklib::Db::Mysql[neutron]/Openstacklib::Db::Mysql::Host_access[neutron_%]/Mysql_user[neutron@%]/ensure: created
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Db::Mysql/Openstacklib::Db::Mysql[neutron]/Openstacklib::Db::Mysql::Host_access[neutron_%]/Mysql_grant[neutron@%/neutron.*]/ensure: created
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Deps/Anchor[neutron::db::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:07:17 - Notice: /Stage[main]/Neutron::Deps/Anchor[neutron::dbsync::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:07:24 - Notice: /Stage[main]/Neutron::Db::Sync/Exec[neutron-db-sync]/returns: executed successfully
+2017-10-30 13:07:25 - Notice: /Stage[main]/Neutron::Db::Sync/Exec[neutron-db-sync]: Triggered 'refresh' from 3 events
+2017-10-30 13:07:25 - Notice: /Stage[main]/Neutron::Deps/Anchor[neutron::dbsync::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:07:25 - Notice: /Stage[main]/Neutron::Deps/Anchor[neutron::service::begin]: Triggered 'refresh' from 3 events
+2017-10-30 13:07:29 - Notice: /Stage[main]/Neutron::Server/Service[neutron-server]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:29 - Notice: /Stage[main]/Neutron::Agents::Dhcp/Service[neutron-dhcp-service]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:29 - Notice: /Stage[main]/Neutron::Agents::Ml2::Ovs/Service[neutron-ovs-agent-service]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:29 - Notice: /Stage[main]/Neutron::Deps/Anchor[neutron::service::end]: Triggered 'refresh' from 3 events
+2017-10-30 13:07:29 - Notice: /Stage[main]/Heat/Oslo::Messaging::Rabbit[heat_config]/Heat_config[oslo_messaging_rabbit/rabbit_host]/ensure: created
+2017-10-30 13:07:29 - Notice: /Stage[main]/Heat::Deps/Anchor[heat::config::end]: Triggered 'refresh' from 52 events
+2017-10-30 13:07:30 - Notice: /Stage[main]/Heat::Db::Mysql/Openstacklib::Db::Mysql[heat]/Mysql_database[heat]/ensure: created
+2017-10-30 13:07:30 - Notice: /Stage[main]/Heat::Db::Mysql/Openstacklib::Db::Mysql[heat]/Openstacklib::Db::Mysql::Host_access[heat_%]/Mysql_user[heat@%]/ensure: created
+2017-10-30 13:07:30 - Notice: /Stage[main]/Heat::Db::Mysql/Openstacklib::Db::Mysql[heat]/Openstacklib::Db::Mysql::Host_access[heat_%]/Mysql_grant[heat@%/heat.*]/ensure: created
+2017-10-30 13:07:30 - Notice: /Stage[main]/Heat::Db::Mysql/Openstacklib::Db::Mysql[heat]/Openstacklib::Db::Mysql::Host_access[heat_172.16.0.1]/Mysql_user[heat@172.16.0.1]/ensure: created
+2017-10-30 13:07:30 - Notice: /Stage[main]/Heat::Db::Mysql/Openstacklib::Db::Mysql[heat]/Openstacklib::Db::Mysql::Host_access[heat_172.16.0.1]/Mysql_grant[heat@172.16.0.1/heat.*]/ensure: created
+2017-10-30 13:07:30 - Notice: /Stage[main]/Heat::Deps/Anchor[heat::db::end]: Triggered 'refresh' from 1 events
+2017-10-30 13:07:30 - Notice: /Stage[main]/Heat::Deps/Anchor[heat::dbsync::begin]: Triggered 'refresh' from 1 events
+2017-10-30 13:07:32 - Notice: /Stage[main]/Heat::Db::Sync/Exec[heat-dbsync]/returns: executed successfully
+2017-10-30 13:07:33 - Notice: /Stage[main]/Heat::Db::Sync/Exec[heat-dbsync]: Triggered 'refresh' from 3 events
+2017-10-30 13:07:33 - Notice: /Stage[main]/Heat::Deps/Anchor[heat::dbsync::end]: Triggered 'refresh' from 2 events
+2017-10-30 13:07:33 - Notice: /Stage[main]/Heat::Deps/Anchor[heat::service::begin]: Triggered 'refresh' from 3 events
+2017-10-30 13:07:34 - Notice: /Stage[main]/Heat::Api_cfn/Service[heat-api-cfn]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:34 - Notice: /Stage[main]/Heat::Engine/Service[heat-engine]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:34 - Notice: /Stage[main]/Heat::Api/Service[heat-api]/ensure: ensure changed 'stopped' to 'running'
+2017-10-30 13:07:34 - Notice: /Stage[main]/Heat::Deps/Anchor[heat::service::end]: Triggered 'refresh' from 3 events
+2017-10-30 13:07:36 - Notice: /Stage[runtime]/Tripleo::Firewall::Post/Tripleo::Firewall::Rule[998 log all]/Firewall[998 log all]/ensure: created
+2017-10-30 13:07:37 - Notice: /Stage[runtime]/Tripleo::Firewall::Post/Tripleo::Firewall::Rule[999 drop all]/Firewall[999 drop all]/ensure: created
+2017-10-30 13:07:37 - Notice: Finished catalog run in 785.98 seconds
++ rc=2
++ set -e
++ echo 'puppet apply exited with exit code 2'
+puppet apply exited with exit code 2
++ '[' 2 '!=' 2 -a 2 '!=' 0 ']'
+dib-run-parts lun oct 30 13:07:44 EDT 2017 50-puppet-stack-config completed
+dib-run-parts lun oct 30 13:07:44 EDT 2017 ----------------------- PROFILING -----------------------
+dib-run-parts lun oct 30 13:07:44 EDT 2017
+dib-run-parts lun oct 30 13:07:44 EDT 2017 Target: configure.d
+dib-run-parts lun oct 30 13:07:44 EDT 2017
+dib-run-parts lun oct 30 13:07:44 EDT 2017 Script                                     Seconds
+dib-run-parts lun oct 30 13:07:44 EDT 2017 ---------------------------------------  ----------
+dib-run-parts lun oct 30 13:07:44 EDT 2017
+dib-run-parts Mon Oct 30 13:07:44 EDT 2017 20-os-apply-config                            0.147
+dib-run-parts Mon Oct 30 13:07:44 EDT 2017 30-reload-keepalived                          0.014
+dib-run-parts Mon Oct 30 13:07:44 EDT 2017 40-hiera-datafiles                            0.144
+dib-run-parts Mon Oct 30 13:07:44 EDT 2017 40-truncate-nova-config                       0.003
+dib-run-parts Mon Oct 30 13:07:44 EDT 2017 50-puppet-stack-config                      821.338
+dib-run-parts lun oct 30 13:07:44 EDT 2017
+dib-run-parts lun oct 30 13:07:44 EDT 2017 --------------------- END PROFILING ---------------------
+[2017-10-30 13:07:44,583] (os-refresh-config) [INFO] Completed phase configure
+[2017-10-30 13:07:44,583] (os-refresh-config) [INFO] Starting phase post-configure
+dib-run-parts lun oct 30 13:07:44 EDT 2017 Running /usr/libexec/os-refresh-config/post-configure.d/10-iptables
++ set -o pipefail
++ EXTERNAL_BRIDGE=br-ctlplane
++ iptables -w -t nat -C PREROUTING -d 169.254.169.254/32 -i br-ctlplane -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 8775
+iptables: No chain/target/match by that name.
++ iptables -w -t nat -I PREROUTING -d 169.254.169.254/32 -i br-ctlplane -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 8775
+dib-run-parts lun oct 30 13:07:44 EDT 2017 10-iptables completed
+dib-run-parts lun oct 30 13:07:44 EDT 2017 Running /usr/libexec/os-refresh-config/post-configure.d/80-seedstack-masquerade
++ RULES_SCRIPT=/var/opt/undercloud-stack/masquerade
++ . /var/opt/undercloud-stack/masquerade
+++ iptables -w -t nat -F BOOTSTACK_MASQ_NEW
+iptables: No chain/target/match by that name.
+++ true
+++ iptables -w -t nat -D POSTROUTING -j BOOTSTACK_MASQ_NEW
+iptables v1.4.21: Couldn't load target `BOOTSTACK_MASQ_NEW':No such file or directory
+
+Try `iptables -h' or 'iptables --help' for more information.
+++ true
+++ iptables -w -t nat -X BOOTSTACK_MASQ_NEW
+iptables: No chain/target/match by that name.
+++ true
+++ iptables -w -t nat -N BOOTSTACK_MASQ_NEW
+++ NETWORK=172.16.0.0/24
+++ iptables -w -t nat -A BOOTSTACK_MASQ_NEW -s 172.16.0.0/24 -d 192.168.122.1 -j RETURN
+++ iptables -w -t nat -A BOOTSTACK_MASQ_NEW -s 172.16.0.0/24 '!' -d 172.16.0.0/24 -j MASQUERADE
+++ iptables -w -t nat -A POSTROUTING -s 172.16.0.0/24 -o eth0 -j MASQUERADE
+++ iptables -w -t nat -I POSTROUTING -j BOOTSTACK_MASQ_NEW
+++ iptables -w -t nat -F BOOTSTACK_MASQ
+iptables: No chain/target/match by that name.
+++ true
+++ iptables -w -t nat -D POSTROUTING -j BOOTSTACK_MASQ
+iptables v1.4.21: Couldn't load target `BOOTSTACK_MASQ':No such file or directory
+
+Try `iptables -h' or 'iptables --help' for more information.
+++ true
+++ iptables -w -t nat -X BOOTSTACK_MASQ
+iptables: No chain/target/match by that name.
+++ true
+++ iptables -w -t nat -E BOOTSTACK_MASQ_NEW BOOTSTACK_MASQ
+++ iptables -w -D FORWARD -j REJECT --reject-with icmp-host-prohibited
+iptables: No chain/target/match by that name.
+++ true
++ iptables-save
+dib-run-parts lun oct 30 13:07:44 EDT 2017 80-seedstack-masquerade completed
+dib-run-parts lun oct 30 13:07:44 EDT 2017 Running /usr/libexec/os-refresh-config/post-configure.d/98-undercloud-setup
++ source /root/tripleo-undercloud-passwords
++++ sudo hiera admin_password
+++ UNDERCLOUD_ADMIN_PASSWORD=74223b7c195b559e37932e95372738bb1979ea1f
++++ sudo hiera keystone::admin_token
+++ UNDERCLOUD_ADMIN_TOKEN=5bd3e0bcbb7f1e2658c7e03712b05781718ccded
++++ sudo hiera ceilometer::metering_secret
+++ UNDERCLOUD_CEILOMETER_METERING_SECRET=34ba97913c49c576b59019f37fa44cb06401ba1f
++++ sudo hiera ceilometer::keystone::authtoken::password
+++ UNDERCLOUD_CEILOMETER_PASSWORD=799e7a5746e45b37d5e732e9e3d110b060ccdd8b
++++ sudo hiera snmpd_readonly_user_password
+++ UNDERCLOUD_CEILOMETER_SNMPD_PASSWORD=8102b7b91e835974d5f564be90cd8cedadad2a83
++++ sudo hiera snmpd_readonly_user_name
+++ UNDERCLOUD_CEILOMETER_SNMPD_USER=ro_snmp_user
++++ sudo hiera admin_password
+++ UNDERCLOUD_DB_PASSWORD=74223b7c195b559e37932e95372738bb1979ea1f
++++ sudo hiera glance::api::keystone_password
+++ UNDERCLOUD_GLANCE_PASSWORD=nil
++++ sudo hiera tripleo::haproxy::haproxy_stats_password
+++ UNDERCLOUD_HAPROXY_STATS_PASSWORD=0edfdbf0d28b912c5f6d5e7901b04a1b4f4d5ddc
++++ sudo hiera heat::engine::auth_encryption_key
+++ UNDERCLOUD_HEAT_ENCRYPTION_KEY=0b75c226c2a0f74f36aba99e5adf8afa
++++ sudo hiera heat::keystone_password
+++ UNDERCLOUD_HEAT_PASSWORD=nil
++++ sudo hiera heat_stack_domain_admin_password
+++ UNDERCLOUD_HEAT_STACK_DOMAIN_ADMIN_PASSWORD=fd389b3a3059ac169b74ab4a76fe695926df9d30
++++ sudo hiera horizon_secret_key
+++ UNDERCLOUD_HORIZON_SECRET_KEY=5b9a3d5440d7837a7b7505bd772ebc174dfffa4e
++++ sudo hiera ironic::api::authtoken::password
+++ UNDERCLOUD_IRONIC_PASSWORD=d175a8da4d82bcf981dcbf062e8b1267167c2acc
++++ sudo hiera neutron::server::auth_password
+++ UNDERCLOUD_NEUTRON_PASSWORD=nil
++++ sudo hiera nova::keystone::authtoken::password
+++ UNDERCLOUD_NOVA_PASSWORD=eb887675e2d59c34735c70ea8f1c778b43c645b8
++++ sudo hiera rabbit_cookie
+++ UNDERCLOUD_RABBIT_COOKIE=264c2cdc72f938e0bcf1e8f343b3b49fe0bc7b52
++++ sudo hiera rabbit_password
+++ UNDERCLOUD_RABBIT_PASSWORD=nil
++++ sudo hiera rabbit_username
+++ UNDERCLOUD_RABBIT_USERNAME=nil
++++ sudo hiera swift::swift_hash_suffix
+++ UNDERCLOUD_SWIFT_HASH_SUFFIX=nil
++++ sudo hiera swift::proxy::authtoken::admin_password
+++ UNDERCLOUD_SWIFT_PASSWORD=96ec03b3352802f0716aa10d2c4519b405b4ea5d
++++ sudo hiera mistral::admin_password
+++ UNDERCLOUD_MISTRAL_PASSWORD=nil
++++ sudo hiera zaqar::keystone::authtoken::password
+++ UNDERCLOUD_ZAQAR_PASSWORD=9ac6c65ff0750acfb5c0d6380c87da7f54d05d83
++ source /root/stackrc
++++ set
++++ awk '{FS="="}  /^OS_/ {print $1}'
+++ NOVA_VERSION=1.1
+++ export NOVA_VERSION
++++ sudo hiera admin_password
+++ OS_PASSWORD=74223b7c195b559e37932e95372738bb1979ea1f
+++ export OS_PASSWORD
+++ OS_AUTH_URL=http://172.16.0.1:5000/v2.0
+++ export OS_AUTH_URL
+++ OS_USERNAME=admin
+++ OS_TENANT_NAME=admin
+++ COMPUTE_API_VERSION=1.1
+++ OS_BAREMETAL_API_VERSION=1.15
+++ OS_NO_CACHE=True
+++ OS_CLOUDNAME=undercloud
+++ OS_IMAGE_API_VERSION=1
+++ export OS_USERNAME
+++ export OS_TENANT_NAME
+++ export COMPUTE_API_VERSION
+++ export OS_BAREMETAL_API_VERSION
+++ export OS_NO_CACHE
+++ export OS_CLOUDNAME
+++ export OS_IMAGE_API_VERSION
++ INSTACK_ROOT=
++ export INSTACK_ROOT
++ '[' -n '' ']'
++ '[' '!' -f /root/.ssh/authorized_keys ']'
++ sudo mkdir -p /root/.ssh
++ sudo chmod 7000 /root/.ssh/
++ sudo touch /root/.ssh/authorized_keys
++ sudo chmod 600 /root/.ssh/authorized_keys
++ '[' '!' -f /root/.ssh/id_rsa ']'
++ ssh-keygen -b 1024 -N '' -f /root/.ssh/id_rsa
+Generating public/private rsa key pair.
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:ZE3U8NwHWAUC5PF8alSo+BBzvHk7drNb0otgdjCsEIU root@undercloud.example.com
+The key's randomart image is:
++---[RSA 1024]----+
+|        .=B+.+=o.|
+|       E++o*++ . |
+|       .o=o+* o .|
+|       o+ =..o . |
+|       .So =o.   |
+|        . o.* o. |
+|         . = +.oo|
+|          o o oo.|
+|             ..o |
++----[SHA256]-----+
++ cat /root/.ssh/id_rsa.pub
+++ os-apply-config --key local-ip --type netaddress
+[2017/10/30 01:07:47 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ UNDERCLOUD_IP=172.16.0.1
++ export UNDERCLOUD_IP
+++ os-apply-config --key neutron.dhcp_start --type netaddress
+[2017/10/30 01:07:47 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ DHCP_START=172.16.0.20
+++ os-apply-config --key neutron.dhcp_end --type netaddress
+[2017/10/30 01:07:47 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ DHCP_END=172.16.0.120
+++ os-apply-config --key neutron.network_cidr --type raw
+[2017/10/30 01:07:48 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ NETWORK_CIDR=172.16.0.0/24
+++ os-apply-config --key neutron.network_gateway --type netaddress
+[2017/10/30 01:07:48 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ NETWORK_GATEWAY=172.16.0.1
++ METADATA_SERVER=172.16.0.1
++ PHYSICAL_NETWORK=ctlplane
++ net_create=1
+++ neutron net-list -f csv -c id -c name --quote none
+++ tail -n +2
+++ grep ctlplane
+++ cut -d, -f 1
++ ctlplane_id=
+++ neutron subnet-list -f csv -c id --quote none
+++ tail -n +2
++ subnet_ids=
++ subnet_id=
++ '[' -n '' ']'
++ '[' 1 -eq 1 ']'
++ neutron subnet-list
++ grep start
++ neutron net-show ctlplane
+Unable to find network with name or id 'ctlplane'
+++ mktemp
++ NETWORK_JSON=/tmp/tmp.ShrErMOUZK
++ NETWORK_JSON_DATA='{"physical":{}}'
+++ jq '.physical = .physical + {
+        "gateway": "172.16.0.1",
+        "metadata_server": "172.16.0.1",
+        "cidr": "172.16.0.0/24",
+        "allocation_start": "172.16.0.20",
+        "allocation_end": "172.16.0.120",
+        "name": "ctlplane",
+    }'
++ NETWORK_JSON_DATA='{
+  "physical": {
+    "gateway": "172.16.0.1",
+    "metadata_server": "172.16.0.1",
+    "cidr": "172.16.0.0/24",
+    "allocation_start": "172.16.0.20",
+    "allocation_end": "172.16.0.120",
+    "name": "ctlplane"
+  }
+}'
++ '[' -n '' ']'
++ jq .
++ setup-neutron -n /tmp/tmp.ShrErMOUZK
++ rm /tmp/tmp.ShrErMOUZK
+++ openstack project show admin
+++ awk '$2=="id" {print $4}'
++ openstack quota set --cores -1 --instances -1 --ram -1 9fae338b2ef24365aebaff52c3d9740e
++ rm -rf /root/.novaclient
+++ hiera enable_mistral
++ '[' true = true ']'
+++ mistral workbook-list
+++ grep tripleo
+++ cut -f 2 -d ' '
+++ mistral workflow-list
+++ grep tripleo
+++ cut -f 2 -d ' '
+++ ls /usr/share/openstack-tripleo-common/workbooks/baremetal.yaml /usr/share/openstack-tripleo-common/workbooks/deployment.yaml /usr/share/openstack-tripleo-common/workbooks/plan_management.yaml /usr/share/openstack-tripleo-common/workbooks/scale.yaml /usr/share/openstack-tripleo-common/workbooks/swift_rings_backup.yaml /usr/share/openstack-tripleo-common/workbooks/validations.yaml
++ for workbook in '$(ls /usr/share/openstack-tripleo-common/workbooks/*)'
++ mistral workbook-create /usr/share/openstack-tripleo-common/workbooks/baremetal.yaml
++------------+----------------------------+
+| Field      | Value                      |
++------------+----------------------------+
+| Name       | tripleo.baremetal.v1       |
+| Tags       | <none>                     |
+| Created at | 2017-10-30 17:08:13.814836 |
+| Updated at | None                       |
++------------+----------------------------+
++ for workbook in '$(ls /usr/share/openstack-tripleo-common/workbooks/*)'
++ mistral workbook-create /usr/share/openstack-tripleo-common/workbooks/deployment.yaml
++------------+----------------------------+
+| Field      | Value                      |
++------------+----------------------------+
+| Name       | tripleo.deployment.v1      |
+| Tags       | <none>                     |
+| Created at | 2017-10-30 17:08:16.138836 |
+| Updated at | None                       |
++------------+----------------------------+
++ for workbook in '$(ls /usr/share/openstack-tripleo-common/workbooks/*)'
++ mistral workbook-create /usr/share/openstack-tripleo-common/workbooks/plan_management.yaml
++------------+----------------------------+
+| Field      | Value                      |
++------------+----------------------------+
+| Name       | tripleo.plan_management.v1 |
+| Tags       | <none>                     |
+| Created at | 2017-10-30 17:08:20.058578 |
+| Updated at | None                       |
++------------+----------------------------+
++ for workbook in '$(ls /usr/share/openstack-tripleo-common/workbooks/*)'
++ mistral workbook-create /usr/share/openstack-tripleo-common/workbooks/scale.yaml
++------------+----------------------------+
+| Field      | Value                      |
++------------+----------------------------+
+| Name       | tripleo.scale.v1           |
+| Tags       | <none>                     |
+| Created at | 2017-10-30 17:08:21.564882 |
+| Updated at | None                       |
++------------+----------------------------+
++ for workbook in '$(ls /usr/share/openstack-tripleo-common/workbooks/*)'
++ mistral workbook-create /usr/share/openstack-tripleo-common/workbooks/swift_rings_backup.yaml
++------------+-------------------------------+
+| Field      | Value                         |
++------------+-------------------------------+
+| Name       | tripleo.swift_rings_backup.v1 |
+| Tags       | <none>                        |
+| Created at | 2017-10-30 17:08:23.448219    |
+| Updated at | None                          |
++------------+-------------------------------+
++ for workbook in '$(ls /usr/share/openstack-tripleo-common/workbooks/*)'
++ mistral workbook-create /usr/share/openstack-tripleo-common/workbooks/validations.yaml
++------------+----------------------------+
+| Field      | Value                      |
++------------+----------------------------+
+| Name       | tripleo.validations.v1     |
+| Tags       | <none>                     |
+| Created at | 2017-10-30 17:08:26.595976 |
+| Updated at | None                       |
++------------+----------------------------+
++ sysctl -w net.ipv4.ip_forward=1
+net.ipv4.ip_forward = 1
++ echo net.ipv4.ip_forward=1
+dib-run-parts lun oct 30 13:08:26 EDT 2017 98-undercloud-setup completed
+dib-run-parts lun oct 30 13:08:26 EDT 2017 Running /usr/libexec/os-refresh-config/post-configure.d/99-refresh-completed
+++ os-apply-config --key completion-handle --type raw --key-default ''
+[2017/10/30 01:08:26 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ HANDLE=
+++ os-apply-config --key completion-signal --type raw --key-default ''
+[2017/10/30 01:08:27 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ SIGNAL=
+++ os-apply-config --key instance-id --type raw --key-default ''
+[2017/10/30 01:08:27 PM] [WARNING] DEPRECATED: falling back to /var/run/os-collect-config/os_config_files.json
++ ID=
++ '[' -n '' ']'
++ exit 0
+dib-run-parts lun oct 30 13:08:27 EDT 2017 99-refresh-completed completed
+dib-run-parts lun oct 30 13:08:27 EDT 2017 ----------------------- PROFILING -----------------------
+dib-run-parts lun oct 30 13:08:27 EDT 2017
+dib-run-parts lun oct 30 13:08:27 EDT 2017 Target: post-configure.d
+dib-run-parts lun oct 30 13:08:27 EDT 2017
+dib-run-parts lun oct 30 13:08:27 EDT 2017 Script                                     Seconds
+dib-run-parts lun oct 30 13:08:27 EDT 2017 ---------------------------------------  ----------
+dib-run-parts lun oct 30 13:08:27 EDT 2017
+dib-run-parts Mon Oct 30 13:08:27 EDT 2017 10-iptables                                   0.017
+dib-run-parts Mon Oct 30 13:08:27 EDT 2017 80-seedstack-masquerade                       0.026
+dib-run-parts Mon Oct 30 13:08:27 EDT 2017 98-undercloud-setup                          42.055
+dib-run-parts Mon Oct 30 13:08:27 EDT 2017 99-refresh-completed                          0.667
+dib-run-parts lun oct 30 13:08:27 EDT 2017
+dib-run-parts lun oct 30 13:08:27 EDT 2017 --------------------- END PROFILING ---------------------
+[2017-10-30 13:08:27,416] (os-refresh-config) [INFO] Completed phase post-configure
+os-refresh-config completed successfully
+Generated new ssh key in ~/.ssh/id_rsa
+Created flavor "baremetal" with profile "None"
+Created flavor "control" with profile "control"
+Created flavor "compute" with profile "compute"
+Created flavor "ceph-storage" with profile "ceph-storage"
+Created flavor "block-storage" with profile "block-storage"
+Created flavor "swift-storage" with profile "swift-storage"
+
+#############################################################################
+Undercloud install complete.
+
+The file containing this installation's passwords is at
+/home/stack/undercloud-passwords.conf.
+
+There is also a stackrc file at /home/stack/stackrc.
+
+These files are needed to interact with the OpenStack services, and should be
+secured.
+
+#############################################################################
